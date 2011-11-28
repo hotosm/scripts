@@ -163,7 +163,11 @@ class Osm2PgsqlStyle:
         tree = etree.parse(filename)
         root = tree.getroot()
         existing_keys = self.rules.keys()
-        for item in root.findall('group//item'):
+        ns = ''
+        if len(root.tag) > 3:
+            ns = '{%s}' % root.tag.split('}')[0][1:]
+        search = '%sgroup//%sitem' % (ns,ns)
+        for item in root.findall(search):
             if hasattr(item,'iterchildren'): # only lxml
                 children = item.iterchildren()
             else:
