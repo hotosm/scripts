@@ -19,7 +19,6 @@ except ImportError:
 
 # TODO - autodetect postgres type, and guess at geometry specialization
 # Are JOSM presents typed at all - or are values always text?
-# print some sort of meta in the output style
 
 class Osm2PgsqlStyle:
     def __init__(self):
@@ -143,7 +142,7 @@ class Osm2PgsqlStyle:
                         key = parts[1]
                         # stop at keys with spaces
                         if ' ' in key:
-                           sys.stderr.write('Tag "%s" has a space, which is not good, fix it!\n' % key)
+                           sys.stderr.write('Tag "%s" has a space, which is not good, fix it before continuing!\n' % key)
                            sys.exit(1)
                         if key not in existing_keys:
                             d = {}
@@ -174,7 +173,7 @@ class Osm2PgsqlStyle:
                 if not key:
                     continue
                 if ' ' in key:
-                    sys.stderr.write('Tag "%s" has a space, which is not good, fix it!\n' % key)
+                    sys.stderr.write('Tag "%s" has a space, which is not good, fix it before continuing!\n' % key)
                     sys.exit(1)
                 if key not in existing_keys:
                     d = {}
@@ -197,7 +196,7 @@ class Osm2PgsqlStyle:
         for key in keys:
             if key not in self.rules:
                 if ' ' in key:
-                    sys.stderr.write('Tag "%s" has a space, which is not good, fix it!\n' % key)
+                    sys.stderr.write('Tag "%s" has a space, which is not good, fix it before continuing!\n' % key)
                     sys.exit(1)
                 d = {}
                 d['osm_type'] = 'node,way'
@@ -273,9 +272,7 @@ Merge a josm preset with the default.style
     $ %prog -s default.style --preset kiosks_haiti.xml
 
 Print metadata about an .osm file and which tags occur in a josm preset
-    $ %prog -o PaP.osm --preset kiosks_haiti.xml --meta
-
-""", version='%prog ' + __version__)
+    $ %prog -o PaP.osm --preset kiosks_haiti.xml --meta""", version='%prog ' + __version__)
 
 parser.add_option('-p','--preset', dest='preset',
                     default=None,
@@ -303,9 +300,13 @@ parser.add_option('--meta', dest='metadata',
 if __name__ == "__main__":
     
     if len(arguments) > 0 and not (options.osm or options.preset or options.user or options.style):
-        sys.stderr.write('\nThis program does not accept any arguments, just keyword options. pass -h to see them\n')
+        sys.stderr.write('This program does not accept any arguments, just keyword options like "--key value". Pass -h to see all the options\n')
         sys.exit(1)
     
+    if not options.style and not options.preset and not options.osm and not options.user:
+        sys.stderr.write('This program requires one more more keyword options like "--key value". Pass -h to see all the options\n')
+        sys.exit(1)
+
     # TODO - only accept keys in style file that exist in osm file
     style = Osm2PgsqlStyle()
     
