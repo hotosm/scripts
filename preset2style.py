@@ -24,13 +24,6 @@ class Osm2PgsqlStyle:
     def __init__(self):
         self.rules = {}
     
-    def open_and_validate(self):
-        try:
-            return True
-            style = open(self.style_file,'rb')
-        except IOError,e:
-            return False
-    
     def __str__(self):
         for line in self:
             sys.stdout.write(line)
@@ -142,8 +135,7 @@ class Osm2PgsqlStyle:
                         key = parts[1]
                         # stop at keys with spaces
                         if ' ' in key:
-                           sys.stderr.write('Tag "%s" has a space, which is not good, fix it before continuing!\n' % key)
-                           sys.exit(1)
+                           raise ValueError('Tag "%s" has a space, which is not good, fix it before continuing!\n' % key)
                         if key not in existing_keys:
                             d = {}
                             d['osm_type'] = parts[0]
@@ -164,10 +156,13 @@ class Osm2PgsqlStyle:
         root = tree.getroot()
         existing_keys = self.rules.keys()
         ns = ''
-        if len(root.tag) > 3:
+        if '{' in root.tag and '}' in root.tag and len(root.tag) > 3:
             ns = '{%s}' % root.tag.split('}')[0][1:]
         search = '%sgroup//%sitem' % (ns,ns)
-        for item in root.findall(search):
+        results = root.findall(search)
+        if not results:
+            raise RuntimeError("Could not parse anything from the josm preset: %s" % filename)
+        for item in results:
             if hasattr(item,'iterchildren'): # only lxml
                 children = item.iterchildren()
             else:
@@ -177,8 +172,7 @@ class Osm2PgsqlStyle:
                 if not key:
                     continue
                 if ' ' in key:
-                    sys.stderr.write('Tag "%s" has a space, which is not good, fix it before continuing!\n' % key)
-                    sys.exit(1)
+                    raise ValueError('Tag "%s" has a space, which is not good, fix it before continuing!\n' % key)
                 if key not in existing_keys:
                     d = {}
                     d['osm_type'] = 'node,way'
@@ -200,8 +194,7 @@ class Osm2PgsqlStyle:
         for key in keys:
             if key not in self.rules:
                 if ' ' in key:
-                    sys.stderr.write('Tag "%s" has a space, which is not good, fix it before continuing!\n' % key)
-                    sys.exit(1)
+                    raise ValueError('Tag "%s" has a space, which is not good, fix it before continuing!\n' % key)
                 d = {}
                 d['osm_type'] = 'node,way'
                 # TODO - safe to autodetect postgres type?
@@ -245,63 +238,61 @@ class Osm2PgsqlStyle:
                 else:
                     self.rules[key]['in_osm'] = 1
         
-
-    
-
-parser = optparse.OptionParser(usage="""%prog [OPTIONS]
-
-This tool is designed to author a style file suitable for
-passing to osm2pgsql for importing custom tags into postgis.
-
-It can ingest and merge tags from an existing style file,
-a josm preset file, a .osm file itself (warning, not recommended
-as this will likely get tags invalid for passing to osm2pgsql either
-becuase they are too long or they have odd characters), or via custom
-tags supplied on the command line.
-
-It also has a --meta option which will dump which tags are in which sources
-instead of printing out a style file for osm2pgsql. This is useful for seeing
-how many of your tags show up in an actual .osm file, and is dumped as a csv.
-
-Example usage
--------------
-
-Full help:
-    $ %prog -h (or --help for possible options)
-
-Read osm2pgsql's default.style, add a few custom tags:
-    $ %prog -s default.style --tags 'name:kr name:fr'
-
-Merge a josm preset with the default.style
-    $ %prog -s default.style --preset kiosks_haiti.xml
-
-Print metadata about an .osm file and which tags occur in a josm preset
-    $ %prog -o PaP.osm --preset kiosks_haiti.xml --meta""", version='%prog ' + __version__)
-
-parser.add_option('-p','--preset', dest='preset',
-                    default=None,
-                    help='Read in josm preset tags')
-
-parser.add_option('-s','--style', dest='style',
-                    default=None,
-                    help='Read in osm2pgsql style tags')
-
-parser.add_option('-o', '--osm', dest='osm',
-                    default=None,
-                    help='Read in .osm file tags')
-
-parser.add_option('-t','--tags', dest='user',
-                    default=None,
-                    help='Read in custom tags supplied by user (quoted and space delimited)')
-
-parser.add_option('--meta', dest='metadata',
-                    default=False,
-                    help='print meta info about which tags are in which source files and if an osm file is passed then summarize the number of tag occurances',
-                    action='store_true')
-
-(options, arguments) = parser.parse_args()
     
 if __name__ == "__main__":
+
+    parser = optparse.OptionParser(usage="""%prog [OPTIONS]
+    
+    This tool is designed to author a style file suitable for
+    passing to osm2pgsql for importing custom tags into postgis.
+    
+    It can ingest and merge tags from an existing style file,
+    a josm preset file, a .osm file itself (warning, not recommended
+    as this will likely get tags invalid for passing to osm2pgsql either
+    becuase they are too long or they have odd characters), or via custom
+    tags supplied on the command line.
+    
+    It also has a --meta option which will dump which tags are in which sources
+    instead of printing out a style file for osm2pgsql. This is useful for seeing
+    how many of your tags show up in an actual .osm file, and is dumped as a csv.
+    
+    Example usage
+    -------------
+    
+    Full help:
+        $ %prog -h (or --help for possible options)
+    
+    Read osm2pgsql's default.style, add a few custom tags:
+        $ %prog -s default.style --tags 'name:kr name:fr'
+    
+    Merge a josm preset with the default.style
+        $ %prog -s default.style --preset kiosks_haiti.xml
+    
+    Print metadata about an .osm file and which tags occur in a josm preset
+        $ %prog -o PaP.osm --preset kiosks_haiti.xml --meta""", version='%prog ' + __version__)
+    
+    parser.add_option('-p','--preset', dest='preset',
+                        default=None,
+                        help='Read in josm preset tags')
+    
+    parser.add_option('-s','--style', dest='style',
+                        default=None,
+                        help='Read in osm2pgsql style tags')
+    
+    parser.add_option('-o', '--osm', dest='osm',
+                        default=None,
+                        help='Read in .osm file tags')
+    
+    parser.add_option('-t','--tags', dest='user',
+                        default=None,
+                        help='Read in custom tags supplied by user (quoted and space delimited)')
+    
+    parser.add_option('--meta', dest='metadata',
+                        default=False,
+                        help='print meta info about which tags are in which source files and if an osm file is passed then summarize the number of tag occurances',
+                        action='store_true')
+    
+    (options, arguments) = parser.parse_args()
     
     if len(arguments) > 0 and not (options.osm or options.preset or options.user or options.style):
         sys.stderr.write('This program does not accept any arguments, just keyword options like "--key value". Pass -h to see all the options\n')
