@@ -1,0 +1,1711 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<presets xmlns="http://josm.openstreetmap.de/tagging-preset-1.0"
+  version="1.0"
+  author="HOT (Humanitarian OpenStreetMap Team) and COSMHA (Communauté OpenStreetMap de Haiti)"
+  shortdescription="DRR Data Model"
+  description="DRR Data Model">
+    <group name="DRR features v1.05" fr.name="COSMHA_Objets DRR v1.05" en.name="COSMHA_DRR features v1.05">
+		<!-- -->
+		<item name="Civil service" fr.name="Administration, service public" en.name="Civil service" type="node,way,closedway,relation">
+		<key key="IOM:project" value="DRR" />
+		<key key="office" value="yes" />
+		<label text="== SURVEYOR INFORMATION ==" fr.text="== INFORMATION ENQUETEUR ==" en.text="== SURVEYOR INFORMATION =="/>
+		<text key="surveyor:name" text="Surveyor(s) Name" fr.text="Nom du ou des enquêteurs" en.text="Surveyor(s) Name"/>		
+		<text key="surveyor:email" text="Surveyor(s) Email" fr.text="Email du ou des enquêteurs" en.text="Surveyor(s) Email"/>		
+		<text key="surveyor:phone" text="Surveyor(s) phone number" fr.text="Telephone du ou des enquêteurs" en.text="Surveyor(s) phone number"/>		
+		<text key="surveyor:GPS" text="Surveyor(s) GPS ID number" fr.text="Numero de GPS du ou des enquêteurs" en.text="Surveyor(s) GPS ID number"/>		
+		<label text=" " />
+		<label text="== NAME OF THE CIVIL SERVICE ==" fr.text="== NOM DU SERVICE PUBLIC ==" en.text="== NAME OF THE CIVIL SERVICE =="/>
+		<text key="name" text="* Name" fr.text="* Nom" en.text="* Name"/>
+		<text key="name:en" text="Name English" fr.text="Nom en anglais" en.text="Name English"/>
+		<text key="name:fr" text="Name French" fr.text="Nom en francais" en.text="Name French"/>
+		<text key="name:kr" text="Name Kreyol" fr.text="Nom en creole" en.text="Name Kreyol"/>
+		<text key="registry_name" text="Registry Name" fr.text="Nom dans base de donnees" en.text="Registry Name"/>
+		<label text=" " />
+		<label text="== ID ==" en.text="== ID =="/>
+		<text key="id:uid" text="UID" fr.text="UID" en.text="UID"/>
+		<text key="id:uuid" text="UUID" fr.text="UUID" en.text="UUID"/>
+		<label text=" " />
+		<label text="== PICTURE ==" fr.text="== PHOTO ==" en.text="== PICTURE =="/>
+		<!--<text key="photo_num" text="Picture number" fr.text="Numero de la photo" en.text="Picture number"/>
+		<text key="photo_name" text="Picture file name" fr.text="Nom de fichier de la photo" en.text="Picture file name"/>
+		-->
+		<text key="photo_url" text="URL of Uploaded picture or picture album on FLICKR" fr.text="URL de la photo uploadee ou de l'album sur FLICKR " en.text="URL of Uploaded picture or picture album on FLICKR"/>
+		<label text=" " />
+		<label text="== ADDRESS DETAILS ==" fr.text="== ADRESSE DETAILS ==" en.text="== ADDRESS DETAILS =="/>
+		<!--<text key="addr:country_national_code" text="Country Code 2 letters ISO 3166-1" fr.text="Code de pays a deux lettres ISO 3166-1 alpha-2" en.text="Country Code 2 letters ISO 3166-1"/>
+		<text key="addr:country" text="Country Name" fr.text="Nom du pays" en.text="Country Name"/>
+		-->
+		<text key="addr:city" text="* City Name" fr.text="* Nom de la ville" en.text="* City Name"/>
+		<text key="addr:ward" text="Ward" fr.text="District, zone ou quartier" en.text="Ward"/>
+		<!--		  <text key="addr:postal_code" text="Postal Code" fr.text="Code postal" en.text="Postal Code"/>
+		-->
+		<text key="addr:street" text="* Street Name" fr.text="* Nom de la rue" en.text="* Street Name"/>
+		<text key="addr:housenumber" text="* Building number" fr.text="* Numero du batiment " en.text="* Building number"/>
+		<text key="addr:full" text="* Full Address" fr.text="* Adresse complete " en.text="* Full Address" />
+		<!--	<text key="Pcode" text="Pcode" fr.text="Pcode" en.text="Pcode"/>
+				<text key="boundary_admin_level1_name" text="Name of the level 1 administrative boundary" fr.text="Nom de l'entite administrative de rang 1" en.text="Name of the level 1 administrative boundary"/>
+				<text key="boundary_admin_level2_name" text="Name of the level 2 administrative boundary" fr.text="Nom de l'entite administrative de rang 2" en.text="Name of the level 2 administrative boundary"/>
+				<text key="boundary_admin_level3_name" text="Name of the level 3 administrative boundary" fr.text="Nom de l'entite administrative de rang 3" en.text="Name of the level 3 administrative boundary"/>
+				<text key="boundary_admin_level4_name" text="Name of the level 4 administrative boundary" fr.text="Nom de l'entite administrative de rang 4" en.text="Name of the level 4 administrative boundary"/>
+		-->		  
+		<text key="place:area" text="Place Name" fr.text="Nom de la localité (zone)" en.text="Place Name"/>
+		<text key="place:area_alternate" text="Alternate Place Name" fr.text="Nom d'usage de la localité (zone)" en.text="Alternate Place Name"/>
+		<text key="place:description" text="Place Description" fr.text="Description de la localité (zone)" en.text="Place Description"/>
+		<text key="place:nearestlandmark" text="Place nearest Landmark" fr.text="Point remarquable le plus proche" en.text="Place nearest Landmark"/>
+		<!--	<text key="block" text="Block" fr.text="Bloc, pate de maisons" en.text="Block"/>
+		-->
+		<label text=" " />
+		<label text="== ACCESSIBILITY ==" fr.text="== ACCESSIBILITE ==" en.text="== ACCESSIBILITY =="/>
+		<combo key="prac" text="Practicability" fr.text="Praticabilite" en.text="Practicability"
+			values="non_motorized,motorbike,4wd_less_than_3.5mt,light_truck_less_than_10mt,heavy_truck_less_than_20mt,truck_+_trailer_greater_than_20mt,unspecified" 
+			display_values="non motorized,motorbike,4wd less than 3.5mt,light truck less than 10mt,heavy truck less than 20mt,truck + trailer greater than 20mt,unspecified"
+			fr.display_values="pieton,moto,4x4 de moins de 3.5t,camion de moins de 10t,camion de moins de 20t,camion de plus de 20t,non precise"
+			en.display_values="non motorized,motorbike,4wd less than 3.5mt,light truck less than 10mt,heavy truck less than 20mt,truck + trailer greater than 20mt,unspecified" required="true" />
+						  <!--la meme facon on descend la fin de l'item, la fin du group et celui du preset, c'est ainsi on peut faire descendre ce champ qu'on va d'ecrire apres le commentaire.On a beaucoup de problem pour trouver
+						  les  feuilles de terrain surtout lorsqu'on a certaines choses a corriger dans des donnees deja editees et encore on va attribuer un codage automatique dans le preset pour un filtrage  qui va nous aider 
+						   a verifier les donnees avec une seule code commune. et on peut egalement parvenir du general au particulier tout depend de votre recherche. pour l'analyse,rapidite,exactidude et la perfection "/> -->
+		          <!-- $$$ to update --> 
+		<combo key="amenity" text="== CIVIL SERVICE TYPE ==" fr.text="== TYPE D'ADMINISTRATION ==" en.text="== CIVIL SERVICE TYPE =="
+            values="townhall,courthouse,prison,fire_station,post_office,police"
+            display_values="townhall,courthouse,prison,fire station,post office,police station "
+			fr.display_values="mairie,palais de justice,prison,caserne de pompiers,bureau de poste,commissariat"
+            en.display_values="townhall,courthouse,prison,fire station,post office,police station"/>
+		<text key="amenity" text="If other, precise" fr.text="Si autres, preciser" en.text="If other, precise"/>			
+		<combo key="amenity:police" text="If police, precise" fr.text="Si commissariat, preciser" en.text="If police, precise"
+			values="primary_police_station,secondary_police_station,annex"
+			display_values="primary police station,secondary police station,annex"
+			fr.display_values="commissariat,sous-commissariat,antenne"
+			en.display_values="primary police station,secondary police station,annex" />		
+		<label text=" " />
+		<label text="== ADMIN LEVEL ==" fr.text="== REFERENCE TERRITORIALE DE L'ADMINISTRATION ==" en.text="== ADMIN LEVEL =="/>
+		<text key="admin_level" text="Admin level (country = 0)" fr.text="Niveau administratif (pays = 0)" en.text="Admin level (country = 0)"/>
+		<label text=" " />
+		<label text="== BUILDING ==" fr.text="== BATIMENT =" en.text="== BUILDING =="/>		
+		<label text="Building base material" fr.text="Materiaux du Batiment" en.text="Building base material" />
+		<check key="building_base_material:reinforced_concrete" text="reinforced concrete" fr.text="beton arme" en.text="reinforced concrete" default="off" />
+		<check key="building_base_material:concrete" text="concrete" fr.text="dur" en.text="concrete" default="off" />
+		<check key="building_base_material:sheet_metal" text="sheet metal" fr.text="tole" en.text="sheet metal" default="off" />
+		<check key="building_base_material:wood" text="wood" fr.text="bois" en.text="wood" default="off" />
+		<check key="building_base_material:pvc" text="PVC" fr.text="PVC" en.text="PVC" default="off" />
+		<check key="building_base_material:canvas" text="canvas" fr.text="toile" en.text="canvas" default="off" />
+		<check key="building_base_material:plastic_sheeting" text="plastic sheeting, prelat" fr.text="bache plastique, prelat" en.text="plastic sheeting, prelat" default="off" />
+		<check key="building_base_material:tent" text="tent" fr.text="tente" en.text="tent" default="off" />
+		<check key="building_base_material:unspecified" text="unspecified" fr.text="non precise" en.text="unspecified" default="off" />
+		<label text=" " />		  
+		 <!-- <multiselect key="building_base_material" text="Building base material" fr.text="Materiaux du Batiment" en.text="Building base material"
+             values="reinforced_concrete;concrete;sheet_metal;wood;pvc;canvas;plastic_sheeting;prelate;tent;unspecified" 
+             display_values="reinforced concrete;concrete;sheet metal;wood;pvc;canvas;plastic sheeting;prelate;tent;unspecified"
+			 fr.display_values="beton arme;dur;tole;bois;pvc;toile;bache plastique;prelat;tente;non precise"
+             en.display_values="reinforced concrete;concrete;sheet metal;wood;pvc;canvas;plastic sheeting;prelat;tente;unspecified" required="true"/> -->
+ 		<label text="Building roof materials" fr.text="Materiaux du toit" en.text="Building roof materials" />
+		<check key="building_roof_material:tiles" text="tiles" fr.text="tuiles" en.text="tiles" default="off" />
+		<check key="building_roof_material:concrete" text="concrete" fr.text="beton" en.text="concrete" default="off" />
+		<check key="building_roof_material:stone" text="stone" fr.text="pierre" en.text="stone" default="off" />
+		<check key="building_roof_material:sheet_metal" text="sheet metal" fr.text="tole" en.text="sheet metal" default="off" />
+		<check key="building_roof_material:wood" text="wood" fr.text="bois" en.text="wood" default="off" />
+		<check key="building_roof_material:pvc" text="PVC" fr.text="PVC" en.text="PVC" default="off" />
+		<check key="building_roof_material:canvas" text="canvas" fr.text="toile" en.text="canvas" default="off" />
+		<check key="building_roof_material:plastic_sheeting" text="plastic sheeting, prelat" fr.text="bache plastique, prelat" en.text="plastic sheeting, prelat" default="off" />
+		<check key="building_roof_material:tent" text="tent" fr.text="tente" en.text="tent" default="off" />
+		<check key="building_roof_material:unspecified" text="unspecified" fr.text="non precise" en.text="unspecified" default="off" />
+		  <!--<multiselect key="building_roof_base_material" text="Building roof materials" fr.text="Materiaux du toit" en.text="Building roof materials"
+             values="tiles;concrete;stone;sheet_metal;wood;pvc;plastic_sheeting;prelate;tent;unspecified"
+             display_values="tiles;concrete;stone;sheet metal;wood;pvc;plastic sheeting;prelate;tent;unspecified"
+			 fr.display_values="tuiles;beton;pierre;tole ondulee;bois;pvc;bache plastique;prelat;tente;non precise"
+             en.display_values="tiles;concrete;stone;sheet metal;wood;pvc;plastic sheeting;prelat;tente;unspecified" required="true"/>-->
+ 		<label text=" " />		
+		<combo key="building_status" text="* Building status" fr.text="* Etat Batiment" en.text="* Building status"
+            values="good,medium,bad,unspecified"
+            display_values="good,medium,bad,unspecified"
+			fr.display_values="bon,moyen,mauvais,non precise"
+            en.display_values="good,medium,bad,unspecified"/>
+		<combo key="operational_status" text="Operational status" fr.text="Statut operationnel" en.text="Operational status" 
+			values="open,restricted,closed,unspecified" 
+			display_values="open,restricted,closed,unspecified"
+			fr.display_values="ouvert,restreint,ferme,non precise" 
+			en.display_values="open,restricted,closed,unspecified" required="true"/>
+		<combo key="operational_status_quality" text="Operational status quality" fr.text="Qualite de l'Information sur le statut operationnel" en.text="Operational status quality" 
+        	values="reported,confirmed,unspecified" 
+        	display_values="reported,confirmed,unspecified" 
+			fr.display_values="rapporte,confirme,non precise"
+			en.display_values="reported,confirmed,unspecified" required="true"/>
+		<label text=" " />
+		<label text="== CAPACITIES ==" fr.text="== CAPACITES ==" en.text="== CAPACITIES =="/>				
+		<text key="capacity:seats" text="Seated capacity max" fr.text="Capacite maximum de places assises" en.text="Seated capacity max"/>
+		<text key="capacity:standing" text="Standing capacity max" fr.text="Capacite maximum de places debout" en.text="Standing capacity max"/>
+		<text key="capacity" text="Capacity max" fr.text="Capacite en nombre maxi de places" en.text="Capacity max"/>
+		<label text=" " />
+		<label text="== TELECOM ==" fr.text="== TELECOMMUNICATIONS ==" en.text="== TELECOM =="/>	
+		<check key="telecom:land_line" text="land line" fr.text="telephone fixe" en.text="land line" default="off" />
+        <check key="telecom:internet" text="internet" fr.text="internet" en.text="internet" default="off" />
+        <check key="telecom:radio" text="radio" fr.text="poste de radio" en.text="radio" default="off" />
+		  <!--<multiselect key="telecomunication" text="Telecomunication" fr.text="Telecomunication" en.text="Telecomunication"
+             values="telephone fixe;internet;poste de radio;unspecified"
+             display_values="telephone fixe;internet;poste de radio;unspecified"
+			 fr.display_values="telephone fixe;internet;poste de radio;unspecified"
+             en.display_values="telephone fixed internet, radio, unspecified" required="true"/>-->
+		<label text=" " />
+		<label text="== OPENING DAYS AND HOURS ==" fr.text="== JOURS ET HEURES DE FONCTIONNEMENT ==" en.text="== OPENING DAYS AND HOURS =="/>
+		<check key="opening_hours:monday" text="Monday" fr.text="Lundi" en.text="Monday" />
+		<check key="opening_hours:tuesday" text="Tuesday" fr.text="Mardi" en.text="Tuesday" />
+		<check key="opening_hours:wednesday" text="Wednesday" fr.text="Mercredi" en.text="Wednesday" />
+		<check key="opening_hours:thursday" text="Thursday" fr.text="Jeudi" en.text="Thursday" />
+		<check key="opening_hours:friday" text="Friday" fr.text="Vendredi" en.text="Friday" />
+		<check key="opening_hours:saturday" text="Saturday" fr.text="Samedi" en.text="Saturday" />
+		<check key="opening_hours:sunday" text="Sunday" fr.text="Dimanche" en.text="Sunday" />
+		<!--<combo key="jour de fonctionnement" text="jour de fonctionnement" fr.text="jour de fonctionnement" en.text="days of operation" 
+        	values="dimanche,lundi,mardi,mercredi,jeudi,vendredi,samedi,autres,unspecified"
+        	display_values="dimanche,lundi,mardi,mercredi,jeudi,vendredi,samedi,autres,unspecified"
+			fr.display_values="dimanche,lundi,mardi,mercredi,jeudi,vendredi,samedi,autres,unspecified"
+        	en.display_values="Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, other, unspecified" />
+		-->
+		<label text=" " />
+		<check key="opening_hours:morning" text="Morning" fr.text="Matin" en.text="Morning" />		
+		<check key="opening_hours:afternoon" text="Afternoon" fr.text="Apres-midi" en.text="Afternoon" />		
+		<check key="opening_hours:night" text="Night" fr.text="Nuit" en.text="Night" />
+		<label text=" " />
+		<check key="opening_hours:unspecified" text="Unspecified" fr.text="Non precise" en.text="Unspecified" />		
+		<!--<multiselect key="heure de fonctionnement" text="heure de fonctionnement" fr.text="heure de fonctionnement" en.text="hours of operation"
+             values="matin;apres-midi;soir;nuit;non specifier"
+             display_values="matin;apres-midi;soir;nuit;non specifier"
+			 fr.display_values="matin;apres-midi;soir;nuit;non specifier"
+             en.display_values="morning-after noon, evening, night,unspecified" required="true"/>
+		-->
+		<label text=" " />
+		<label text="== ATTENDANCE ==" fr.text="== FREQUENTATION ==" en.text="== ATTENDANCE =="/>			
+		<text key="employees:morning" text="Number of employees on the morning" fr.text="Nombre d'employes le matin" en.text="Number of employees on the morning" />
+		<text key="employees:afternoon" text="Number of employees on the afternoon" fr.text="Nombre d'employes l'apres-midi" en.text="Number of employees on the afternoon" />
+		<text key="employees:evening" text="Number of employees on the evening" fr.text="Nombre d'employes le soir" en.text="Number of employees on the evening" />
+		<text key="employees:night" text="Number of employees during the night" fr.text="Nombre d'employes la nuit" en.text="Number of employees during the night" />
+		<label text=" " />
+		<text key="public_adults:morning" text="Number of adult visitors on the morning" fr.text="Nombre de visiteurs adultes le matin" en.text="Number of adult visitors on the morning"/>
+		<text key="public_adults:afternoon" text="Number of adult visitors on the afternoon" fr.text="Nombre de visiteurs adultes l'apres-midi" en.text="Number of adult visitors on the afternoon"/>
+		<text key="public_adults:evening" text="Number of adult visitors on the evening" fr.text="Nombre de visiteurs adultes le soir" en.text="Number of adult visitors on the evening"/>
+		<text key="public_adults:night" text="Number of adult visitors during the night" fr.text="Nombre de visiteurs adultes la nuit" en.text="Number of adult visitors during the night"/>
+		<label text=" " />
+		<text key="public_under18:morning" text="Number of visitors under 18 on the morning" fr.text="Nombre de visiteurs enfants le matin" en.text="Number of visitors under 18 on the morning"/>
+		<text key="public_under18:afternoon" text="Number of visitors under 18 on the afternoon" fr.text="Nombre de visiteurs enfants l'apres-midi" en.text="Number of visitors under 18 on the afternoon"/>
+		<text key="public_under18:evening" text="Number of visitors under 18 on the evening" fr.text="Nombre de visiteurs enfants le soir" en.text="Number of visitors under 18 on the evening"/>
+		<text key="public_under18:night" text="Number of visitors under 18 during the night" fr.text="Nombre de visiteurs enfants la nuit" en.text="Number of visitors under 18 during the night"/>
+		<label text=" " />
+		<label text="== SOURCE ==" fr.text="== SOURCE ==" en.text="== SOURCE =="/>		
+       	<text key="geometry_source_name" text="Geometry source name" fr.text="Nom de la source geometrique" en.text="Geometry source name" />
+        <combo key="geometry_source_type" text="Geometry source type" fr.text="Type de la source geometrique" en.text="Geometry source type" 
+        	values="field_mission_gps_walking_paper,field_mission_gps,field_mission_walking_paper,satellite_imagery,maps,gis_dataset,unspecified"
+        	display_values="field mission with gps and walking paper,field mission with only gps,field mission with only walking paper,satellite imagery,maps,gis dataset,unspecified" 
+			fr.display_values="mission de terrain avec GPS et walking paper,mission de terrain avec GPS seul,mission de terrain avec walking paper seul,image satellite,carte,base de donnees georeferencee,non precise"
+        	en.display_values="field mission with gps and walking paper,field mission with only gps,field mission with only walking paper,satellite imagery,maps,gis dataset,unspecified" required="true"/>
+        <text key="geometry_source_date" text="Geometry source date (DD/MM/YYYY)" fr.text="Date de la source geometrique (JJ/MM/AAAA)" en.text="Geometry source date (DD/MM/YYYY)"/>
+        <text key="attribute_source_name" text="Attribute source name" fr.text="Nom de la source attributaire" en.text="Attribute source name" />
+        <combo key="attribute_source_type" text="Attribute source type" fr.text="Type de la source attributaire"  en.text="Attribute source type" 
+        	values="field_mission,report,unspecified"
+        	display_values="field mission,report,unspecified"
+			fr.display_values="mission de terrain,rapport,non precise"
+        	en.display_values="field mission,report,unspecified" required="true"/>
+        <text key="attribute_source_date" text="Attribute source date (DD/MM/YYYY)" fr.text="Date de la source attributaire (JJ/MM/AAAA)" en.text="Attribute source date (DD/MM/YYYY)" />
+		<label text=" " />
+        <text key="NOTE" text="NOTE" fr.text="NOTES" en.text="NOTE" />
+		<label text=" " />
+	</item>
+						<!--	Organization -->	
+	<item name="Organization" fr.name="Organisation" en.name="Organization" type="node,way,closedway,relation" >
+		<key key="IOM:project" value="DRR" />
+		<label text="== SURVEYOR INFORMATION ==" fr.text="== INFORMATION ENQUETEUR ==" en.text="== SURVEYOR INFORMATION =="/>
+		<text key="surveyor:name" text="Surveyor(s) Name" fr.text="Nom du ou des enquêteurs" en.text="Surveyor(s) Name"/>		
+		<text key="surveyor:email" text="Surveyor(s) Email" fr.text="Email du ou des enquêteurs" en.text="Surveyor(s) Email"/>		
+		<text key="surveyor:phone" text="Surveyor(s) phone number" fr.text="Telephone du ou des enquêteurs" en.text="Surveyor(s) phone number"/>		
+		<text key="surveyor:GPS" text="Surveyor(s) GPS ID number" fr.text="Numero de GPS du ou des enquêteurs" en.text="Surveyor(s) GPS ID number"/>		
+		<label text=" " />
+		<label text="== NAME OF THE ORGANIZATION ==" fr.text="== NOM DE L'ORGANISATION ==" en.text="== NAME OF THE ORGANIZATION =="/>
+		<text key="name" text="* Name" fr.text="* Nom" en.text="* Name"/>
+		<text key="name:en" text="Name English" fr.text="Nom en anglais" en.text="Name English"/>
+		<text key="name:fr" text="Name French" fr.text="Nom en francais" en.text="Name French"/>
+		<text key="name:kr" text="Name Kreyol" fr.text="Nom en creole" en.text="Name Kreyol"/>
+		<text key="registry_name" text="Registry Name" fr.text="Nom dans base de donnees" en.text="Registry Name"/>
+		<label text=" " />
+		<label text="== ID ==" en.text="== ID =="/>
+		<text key="id:uid" text="UID" fr.text="UID" en.text="UID"/>
+		<text key="id:uuid" text="UUID" fr.text="UUID" en.text="UUID"/>
+		<label text=" " />
+		<label text="== PICTURE ==" fr.text="== PHOTO ==" en.text="== PICTURE =="/>
+		<text key="photo_url" text="URL of Uploaded picture or picture album on FLICKR" fr.text="URL de la photo uploadee ou de l'album sur FLICKR " en.text="URL of Uploaded picture or picture album on FLICKR"/>
+		<label text=" " />
+		<label text="== ORGANIZATION MAIN LOCATION ==" fr.text="== LIEU PRINCIPAL DE L'ORGANISATION  ==" en.text="== ORGANIZATION MAIN LOCATION =="/>		
+		<check key="office" text="Office" fr.text="Bureau" en.text="Office" default="off" />
+		<check key="leisure" text="Sport field" fr.text="Terrain de sport" en.text="Sport field" value_on="pitch" default="off" />
+		<text key="organization_location_type" text="Precise if other location type" fr.text="Preciser si autre type de lieu" en.text="Precise if other location type"  />
+		<label text=" " />	
+		<combo key="operator_type" text="== OPERATOR TYPE ==" fr.text="== TYPE D'OPERATEUR ==" en.text="== OPERATOR TYPE ==" 
+			values="government_facility-public,non_government_facility_public,paragovernmental,private_for_profit,private_non_profit,religious_based_NGO,non_religious_based_NGO,community,association,unspecified" 
+			display_values="governmental facility public,non government facility public,paragovernmental,private for profit,private non profit,religious based NGO,non religious based NGO,community,association,unspecified"
+			fr.display_values="public gouvernemental,public non gouvernemental,parapublic,prive a but lucratif,prive a but non lucratif,ONG a base religieuse,ONG sans base religieuse,communaute,association,non precise"
+			en.display_values="governmental facility public,non government facility public,paragovernmental,private for profit,private non profit,religious based NGO,non religious based NGO,community,association,unspecified" required="true"/>
+		<label text=" " />
+		<label text="== ADDRESS DETAILS ==" fr.text="== ADRESSE DETAILS ==" en.text="== ADDRESS DETAILS =="/>
+		<text key="addr:city" text="* City Name" fr.text="* Nom de la ville" en.text="* City Name"/>
+		<text key="addr:ward" text="Ward" fr.text="District, zone ou quartier" en.text="Ward"/>
+		<text key="addr:street" text="* Street Name" fr.text="* Nom de la rue" en.text="* Street Name"/>
+		<text key="addr:housenumber" text="* Building number" fr.text="* Numero du batiment " en.text="* Building number"/>
+		<text key="addr:full" text="* Full Address" fr.text="* Adresse complete " en.text="* Full Address" />
+  		<text key="place:area" text="Place Name" fr.text="Nom de la localité (zone)" en.text="Place Name"/>
+		<text key="place:area_alternate" text="Alternate Place Name" fr.text="Nom d'usage de la localité (zone)" en.text="Alternate Place Name"/>
+		<text key="place:description" text="Place Description" fr.text="Description de la localité (zone)" en.text="Place Description"/>
+		<text key="place:nearestlandmark" text="Place nearest Landmark" fr.text="Point remarquable le plus proche" en.text="Place nearest Landmark"/>
+		<label text=" " />
+		<label text="== ACCESSIBILITY ==" fr.text="== ACCESSIBILITE ==" en.text="== ACCESSIBILITY =="/>
+		<combo key="prac" text="Practicability" fr.text="Praticabilite" en.text="Practicability"
+			values="non_motorized,motorbike,4wd_less_than_3.5mt,light_truck_less_than_10mt,heavy_truck_less_than_20mt,truck_+_trailer_greater_than_20mt,unspecified" 
+			display_values="non motorized,motorbike,4wd less than 3.5mt,light truck less than 10mt,heavy truck less than 20mt,truck + trailer greater than 20mt,unspecified"
+			fr.display_values="pieton,moto,4x4 de moins de 3.5t,camion de moins de 10t,camion de moins de 20t,camion de plus de 20t,non precise"
+			en.display_values="non motorized,motorbike,4wd less than 3.5mt,light truck less than 10mt,heavy truck less than 20mt,truck + trailer greater than 20mt,unspecified" required="true" />
+		<label text=" " />
+		<label text="== BUILDING ==" fr.text="== BATIMENT =" en.text="== BUILDING =="/>		
+		<label text="Building base material" fr.text="Materiaux du Batiment" en.text="Building base material" />
+		<check key="building_base_material:reinforced_concrete" text="reinforced concrete" fr.text="beton arme" en.text="reinforced concrete" default="off" />
+		<check key="building_base_material:concrete" text="concrete" fr.text="dur" en.text="concrete" default="off" />
+		<check key="building_base_material:sheet_metal" text="sheet metal" fr.text="tole" en.text="sheet metal" default="off" />
+		<check key="building_base_material:wood" text="wood" fr.text="bois" en.text="wood" default="off" />
+		<check key="building_base_material:pvc" text="PVC" fr.text="PVC" en.text="PVC" default="off" />
+		<check key="building_base_material:canvas" text="canvas" fr.text="toile" en.text="canvas" default="off" />
+		<check key="building_base_material:plastic_sheeting" text="plastic sheeting, prelat" fr.text="bache plastique, prelat" en.text="plastic sheeting, prelat" default="off" />
+		<check key="building_base_material:tent" text="tent" fr.text="tente" en.text="tent" default="off" />
+		<check key="building_base_material:unspecified" text="unspecified" fr.text="non precise" en.text="unspecified" default="off" />
+		<label text=" " />		  
+ 		<label text="Building roof materials" fr.text="Materiaux du toit" en.text="Building roof materials" />
+		<check key="building_roof_material:tiles" text="tiles" fr.text="tuiles" en.text="tiles" default="off" />
+		<check key="building_roof_material:concrete" text="concrete" fr.text="beton" en.text="concrete" default="off" />
+		<check key="building_roof_material:stone" text="stone" fr.text="pierre" en.text="stone" default="off" />
+		<check key="building_roof_material:sheet_metal" text="sheet metal" fr.text="tole" en.text="sheet metal" default="off" />
+		<check key="building_roof_material:wood" text="wood" fr.text="bois" en.text="wood" default="off" />
+		<check key="building_roof_material:pvc" text="PVC" fr.text="PVC" en.text="PVC" default="off" />
+		<check key="building_roof_material:canvas" text="canvas" fr.text="toile" en.text="canvas" default="off" />
+		<check key="building_roof_material:plastic_sheeting" text="plastic sheeting, prelat" fr.text="bache plastique, prelat" en.text="plastic sheeting, prelat" default="off" />
+		<check key="building_roof_material:tent" text="tent" fr.text="tente" en.text="tent" default="off" />
+		<check key="building_roof_material:unspecified" text="unspecified" fr.text="non precise" en.text="unspecified" default="off" />
+ 		<label text=" " />		
+		<combo key="building_status" text="* Building status" fr.text="* Etat Batiment" en.text="* Building status"
+            values="good,medium,bad,unspecified"
+            display_values="good,medium,bad,unspecified"
+			fr.display_values="bon,moyen,mauvais,non precise"
+            en.display_values="good,medium,bad,unspecified"/>
+		<combo key="operational_status" text="Operational status" fr.text="Statut operationnel" en.text="Operational status" 
+			values="open,restricted,closed,unspecified" 
+			display_values="open,restricted,closed,unspecified"
+			fr.display_values="ouvert,restreint,ferme,non precise" 
+			en.display_values="open,restricted,closed,unspecified" required="true"/>
+		<combo key="operational_status_quality" text="Operational status quality" fr.text="Qualite de l'Information sur le statut operationnel" en.text="Operational status quality" 
+        	values="reported,confirmed,unspecified" 
+        	display_values="reported,confirmed,unspecified" 
+			fr.display_values="rapporte,confirme,non precise"
+			en.display_values="reported,confirmed,unspecified" required="true"/>
+		<label text=" " />
+		<label text="== CAPACITIES ==" fr.text="== CAPACITES ==" en.text="== CAPACITIES =="/>				
+		<text key="capacity:seats" text="Seated capacity max" fr.text="Capacite maximum de places assises" en.text="Seated capacity max"/>
+		<text key="capacity:standing" text="Standing capacity max" fr.text="Capacite maximum de places debout" en.text="Standing capacity max"/>
+		<text key="capacity" text="Capacity max" fr.text="Capacite en nombre maxi de places" en.text="Capacity max"/>
+		<label text=" " />
+		<label text="== TELECOM ==" fr.text="== TELECOMMUNICATIONS ==" en.text="== TELECOM =="/>	
+		<check key="telecom:land_line" text="land line" fr.text="Telephone fixe" en.text="land line" default="off" />
+        <check key="telecom:internet" text="internet" fr.text="internet" en.text="internet" default="off" />
+        <check key="telecom:radio" text="radio" fr.text="poste de radio" en.text="radio" default="off" />
+		<label text=" " />
+		<label text="== OPENING DAYS AND HOURS ==" fr.text="== JOURS ET HEURES DE FONCTIONNEMENT ==" en.text="== OPENING DAYS AND HOURS =="/>
+		<check key="opening_hours:monday" text="Monday" fr.text="Lundi" en.text="Monday" />
+		<check key="opening_hours:tuesday" text="Tuesday" fr.text="Mardi" en.text="Tuesday" />
+		<check key="opening_hours:wednesday" text="Wednesday" fr.text="Mercredi" en.text="Wednesday" />
+		<check key="opening_hours:thursday" text="Thursday" fr.text="Jeudi" en.text="Thursday" />
+		<check key="opening_hours:friday" text="Friday" fr.text="Vendredi" en.text="Friday" />
+		<check key="opening_hours:saturday" text="Saturday" fr.text="Samedi" en.text="Saturday" />
+		<check key="opening_hours:sunday" text="Sunday" fr.text="Dimanche" en.text="Sunday" />
+		<label text=" " />
+		<check key="opening_hours:morning" text="Morning" fr.text="Matin" en.text="Morning" />		
+		<check key="opening_hours:afternoon" text="Afternoon" fr.text="Apres-midi" en.text="Afternoon" />		
+		<check key="opening_hours:night" text="Night" fr.text="Nuit" en.text="Night" />
+		<label text=" " />
+		<check key="opening_hours:unspecified" text="Unspecified" fr.text="Non precise" en.text="Unspecified" />		
+		<label text=" " />
+		<label text="== ATTENDANCE ==" fr.text="== FREQUENTATION ==" en.text="== ATTENDANCE =="/>			
+		<text key="employees:morning" text="Number of employees on the morning" fr.text="Nombre d'employes le matin" en.text="Number of employees on the morning" />
+		<text key="employees:afternoon" text="Number of employees on the afternoon" fr.text="Nombre d'employes l'apres-midi" en.text="Number of employees on the afternoon" />
+		<text key="employees:evening" text="Number of employees on the evening" fr.text="Nombre d'employes le soir" en.text="Number of employees on the evening" />
+		<text key="employees:night" text="Number of employees during the night" fr.text="Nombre d'employes la nuit" en.text="Number of employees during the night" />
+		<label text=" " />
+		<text key="pupils:morning" text="Number of pupils on the morning" fr.text="Nombre d'eleves le matin" en.text="Number of pupils on the morning"/>
+		<text key="pupils:afternoon" text="Number of pupils on the afternoon" fr.text="Nombre d'eleves l'apres-midi" en.text="Number of pupils on the afternoon"/>
+		<text key="pupils:evening" text="Number of pupils on the evening" fr.text="Nombre d'eleves le soir" en.text="Number of pupils on the evening"/>
+		<text key="pupils:night" text="Number of pupils during the night" fr.text="Nombre d'eleves la nuit" en.text="Number of pupils during the night"/>
+		<label text=" " />
+		<text key="classrooms:morning" text="Number of classrooms on the morning" fr.text="Nombre de classes le matin" en.text="Number of classrooms on the morning"/>
+		<text key="classrooms:afternoon" text="Number of classrooms on the afternoon" fr.text="Nombre de classes l'apres-midi" en.text="Number of classrooms on the afternoon"/>
+		<text key="classrooms:evening" text="Number of classrooms on the evening" fr.text="Nombre de classes le soir" en.text="Number of classrooms on the evening"/>
+		<text key="classrooms:night" text="Number of classrooms during the night" fr.text="Nombre de classes la nuit" en.text="Number of classrooms during the night"/>
+		<label text=" " />
+		<label text="== SOURCE ==" fr.text="== SOURCE ==" en.text="== SOURCE =="/>		
+       	<text key="geometry_source_name" text="Geometry source name" fr.text="Nom de la source geometrique" en.text="Geometry source name" />
+        <combo key="geometry_source_type" text="Geometry source type" fr.text="Type de la source geometrique" en.text="Geometry source type" 
+        	values="field_mission_gps_walking_paper,field_mission_gps,field_mission_walking_paper,satellite_imagery,maps,gis_dataset,unspecified"
+        	display_values="field mission with gps and walking paper,field mission with only gps,field mission with only walking paper,satellite imagery,maps,gis dataset,unspecified" 
+			fr.display_values="mission de terrain avec GPS et walking paper,mission de terrain avec GPS seul,mission de terrain avec walking paper seul,image satellite,carte,base de donnees georeferencee,non precise"
+        	en.display_values="field mission with gps and walking paper,field mission with only gps,field mission with only walking paper,satellite imagery,maps,gis dataset,unspecified" required="true"/>
+        <text key="geometry_source_date" text="Geometry source date (DD/MM/YYYY)" fr.text="Date de la source geometrique (JJ/MM/AAAA)" en.text="Geometry source date (DD/MM/YYYY)"/>
+        <text key="attribute_source_name" text="Attribute source name" fr.text="Nom de la source attributaire" en.text="Attribute source name" />
+        <combo key="attribute_source_type" text="Attribute source type" fr.text="Type de la source attributaire"  en.text="Attribute source type" 
+        	values="field_mission,report,unspecified"
+        	display_values="field mission,report,unspecified"
+			fr.display_values="mission de terrain,rapport,non precise"
+        	en.display_values="field mission,report,unspecified" required="true"/>
+        <text key="attribute_source_date" text="Attribute source date (DD/MM/YYYY)" fr.text="Date de la source attributaire (JJ/MM/AAAA)" en.text="Attribute source date (DD/MM/YYYY)" />
+		<label text=" " />
+        <text key="NOTE" text="NOTE" fr.text="NOTES" en.text="NOTE" />
+		<label text=" " />
+	</item>
+				<!--	Education -->	
+	<item name="Educational facility" fr.name="Structure d'education" en.name="Educational facility" type="node,closedway,relation" icon="presets/school.png">
+		<key key="IOM:project" value="DRR" />
+		<label text="== SURVEYOR INFORMATION ==" fr.text="== INFORMATION ENQUETEUR ==" en.text="== SURVEYOR INFORMATION =="/>
+		<text key="surveyor:name" text="Surveyor(s) Name" fr.text="Nom du ou des enquêteurs" en.text="Surveyor(s) Name"/>		
+		<text key="surveyor:email" text="Surveyor(s) Email" fr.text="Email du ou des enquêteurs" en.text="Surveyor(s) Email"/>		
+		<text key="surveyor:phone" text="Surveyor(s) phone number" fr.text="Telephone du ou des enquêteurs" en.text="Surveyor(s) phone number"/>		
+		<text key="surveyor:GPS" text="Surveyor(s) GPS ID number" fr.text="Numero de GPS du ou des enquêteurs" en.text="Surveyor(s) GPS ID number"/>		
+		<label text=" " />
+		<label text="== NAME OF THE EDUCATIONAL FACILITY ==" fr.text="== NOM DE LA STRUCTURE D'EDUCATION ==" en.text="== NAME OF THE EDUCATIONAL FACILITY =="/>
+		<text key="name" text="* Name" fr.text="* Nom" en.text="* Name"/>
+		<text key="name:en" text="Name English" fr.text="Nom en anglais" en.text="Name English"/>
+		<text key="name:fr" text="Name French" fr.text="Nom en francais" en.text="Name French"/>
+		<text key="name:kr" text="Name Kreyol" fr.text="Nom en creole" en.text="Name Kreyol"/>
+		<text key="registry_name" text="Registry Name" fr.text="Nom dans base de donnees" en.text="Registry Name"/>
+		<label text=" " />
+		<label text="== ID ==" en.text="== ID =="/>
+		<text key="id:uid" text="UID" fr.text="UID" en.text="UID"/>
+		<text key="id:uuid" text="UUID" fr.text="UUID" en.text="UUID"/>
+		<label text=" " />
+		<label text="== PICTURE ==" fr.text="== PHOTO ==" en.text="== PICTURE =="/>
+		<text key="photo_url" text="URL of Uploaded picture or picture album on FLICKR" fr.text="URL de la photo uploadee ou de l'album sur FLICKR " en.text="URL of Uploaded picture or picture album on FLICKR"/>
+		<label text=" " />
+		<label text="== ADDRESS DETAILS ==" fr.text="== ADRESSE DETAILS ==" en.text="== ADDRESS DETAILS =="/>
+		<text key="addr:city" text="* City Name" fr.text="* Nom de la ville" en.text="* City Name"/>
+		<text key="addr:ward" text="Ward" fr.text="District, zone ou quartier" en.text="Ward"/>
+		<text key="addr:street" text="* Street Name" fr.text="* Nom de la rue" en.text="* Street Name"/>
+		<text key="addr:housenumber" text="* Building number" fr.text="* Numero du batiment " en.text="* Building number"/>
+		<text key="addr:full" text="* Full Address" fr.text="* Adresse complete " en.text="* Full Address" />
+		<text key="place:area" text="Place Name" fr.text="Nom de la localité (zone)" en.text="Place Name"/>
+		<text key="place:area_alternate" text="Alternate Place Name" fr.text="Nom d'usage de la localité (zone)" en.text="Alternate Place Name"/>
+		<text key="place:description" text="Place Description" fr.text="Description de la localité (zone)" en.text="Place Description"/>
+		<text key="place:nearestlandmark" text="Place nearest Landmark" fr.text="Point remarquable le plus proche" en.text="Place nearest Landmark"/>
+		<label text=" " />
+		<label text="== ACCESSIBILITY ==" fr.text="== ACCESSIBILITE ==" en.text="== ACCESSIBILITY =="/>
+		<combo key="prac" text="Practicability" fr.text="Praticabilite" en.text="Practicability"
+			values="non_motorized,motorbike,4wd_less_than_3.5mt,light_truck_less_than_10mt,heavy_truck_less_than_20mt,truck_+_trailer_greater_than_20mt,unspecified" 
+			display_values="non motorized,motorbike,4wd less than 3.5mt,light truck less than 10mt,heavy truck less than 20mt,truck + trailer greater than 20mt,unspecified"
+			fr.display_values="pieton,moto,4x4 de moins de 3.5t,camion de moins de 10t,camion de moins de 20t,camion de plus de 20t,non precise"
+			en.display_values="non motorized,motorbike,4wd less than 3.5mt,light truck less than 10mt,heavy truck less than 20mt,truck + trailer greater than 20mt,unspecified" required="true" />
+		<label text=" " />
+		<combo key="operator_type" text="== OPERATOR TYPE ==" fr.text="== TYPE D'OPERATEUR ==" en.text="== OPERATOR TYPE ==" 
+			values="public_laic,public_congregationnist,religious_based_NGO,non_religious_based_NGO,private_religious,private_laic,community,other" 
+			display_values="laic public facility,public congregationnist facility,religious based NGO,non religious based NGO,private religious,private laic,community,other"
+			fr.display_values="laic public,public congregationniste,ONG a base religieuse,ONG sans base religieuse,prive religieux,prive laic,communaute,autre"
+			en.display_values="laic public facility,public congregationnist facility,religious based NGO,non religious based NGO,private religious,private laic,community,other" required="true"/>
+		<text key="operator_type_other" text="Precise if other" fr.name="Preciser si autre" en.text="Precise if other" />
+		<label text=" " />
+		<combo key="amenity" text="== EDUCATIONAL FACILITY TYPE ==" fr.text="== TYPE DE STRUCTURE D'EDUCATION ==" en.text="== EDUCATIONAL FACILITY TYPE ==" 
+			values="kindergarten,community_centre,school,college,university,professional_school"
+			display_values="kindergarten,community centre,school,college,university,professional school"
+			fr.display_values="kindergarten ou maternelle,centre de loisirs,ecole,lycee,universite,ecole professionnelle"			
+			en.display_values="kindergarten,community centre,school,college,university,professional school"	/>
+		<label text=" " />
+		<label text="== BUILDING ==" fr.text="== BATIMENT =" en.text="== BUILDING =="/>		
+		<label text="Building base material" fr.text="Materiaux du Batiment" en.text="Building base material" />
+		<check key="building_base_material:reinforced_concrete" text="reinforced concrete" fr.text="beton arme" en.text="reinforced concrete" default="off" />
+		<check key="building_base_material:concrete" text="concrete" fr.text="dur" en.text="concrete" default="off" />
+		<check key="building_base_material:sheet_metal" text="sheet metal" fr.text="tole" en.text="sheet metal" default="off" />
+		<check key="building_base_material:wood" text="wood" fr.text="bois" en.text="wood" default="off" />
+		<check key="building_base_material:pvc" text="PVC" fr.text="PVC" en.text="PVC" default="off" />
+		<check key="building_base_material:canvas" text="canvas" fr.text="toile" en.text="canvas" default="off" />
+		<check key="building_base_material:plastic_sheeting" text="plastic sheeting, prelat" fr.text="bache plastique, prelat" en.text="plastic sheeting, prelat" default="off" />
+		<check key="building_base_material:tent" text="tent" fr.text="tente" en.text="tent" default="off" />
+		<check key="building_base_material:unspecified" text="unspecified" fr.text="non precise" en.text="unspecified" default="off" />
+		<label text=" " />		  
+ 		<label text="Building roof materials" fr.text="Materiaux du toit" en.text="Building roof materials" />
+		<check key="building_roof_material:tiles" text="tiles" fr.text="tuiles" en.text="tiles" default="off" />
+		<check key="building_roof_material:concrete" text="concrete" fr.text="beton" en.text="concrete" default="off" />
+		<check key="building_roof_material:stone" text="stone" fr.text="pierre" en.text="stone" default="off" />
+		<check key="building_roof_material:sheet_metal" text="sheet metal" fr.text="tole" en.text="sheet metal" default="off" />
+		<check key="building_roof_material:wood" text="wood" fr.text="bois" en.text="wood" default="off" />
+		<check key="building_roof_material:pvc" text="PVC" fr.text="PVC" en.text="PVC" default="off" />
+		<check key="building_roof_material:canvas" text="canvas" fr.text="toile" en.text="canvas" default="off" />
+		<check key="building_roof_material:plastic_sheeting" text="plastic sheeting, prelat" fr.text="bache plastique, prelat" en.text="plastic sheeting, prelat" default="off" />
+		<check key="building_roof_material:tent" text="tent" fr.text="tente" en.text="tent" default="off" />
+		<check key="building_roof_material:unspecified" text="unspecified" fr.text="non precise" en.text="unspecified" default="off" />
+ 		<label text=" " />		
+		<combo key="building_status" text="* Building status" fr.text="* Etat Batiment" en.text="* Building status"
+            values="good,medium,bad,unspecified"
+            display_values="good,medium,bad,unspecified"
+			fr.display_values="bon,moyen,mauvais,non precise"
+            en.display_values="good,medium,bad,unspecified"/>
+		<combo key="operational_status" text="Operational status" fr.text="Statut operationnel" en.text="Operational status" 
+			values="open,restricted,closed,unspecified" 
+			display_values="open,restricted,closed,unspecified"
+			fr.display_values="ouvert,restreint,ferme,non precise" 
+			en.display_values="open,restricted,closed,unspecified" required="true"/>
+		<combo key="operational_status_quality" text="Operational status quality" fr.text="Qualite de l'Information sur le statut operationnel" en.text="Operational status quality" 
+        	values="reported,confirmed,unspecified" 
+        	display_values="reported,confirmed,unspecified" 
+			fr.display_values="rapporte,confirme,non precise"
+			en.display_values="reported,confirmed,unspecified" required="true"/>
+		<label text=" " />
+		<label text="== CAPACITIES ==" fr.text="== CAPACITES ==" en.text="== CAPACITIES =="/>				
+		<text key="capacity:seats" text="Seated capacity max" fr.text="Capacite maximum de places assises" en.text="Seated capacity max"/>
+		<text key="capacity:standing" text="Standing capacity max" fr.text="Capacite maximum de places debout" en.text="Standing capacity max"/>
+		<text key="capacity" text="Capacity max" fr.text="Capacite en nombre maxi de places" en.text="Capacity max"/>
+		<label text=" " />
+		<label text="== TELECOM ==" fr.text="== TELECOMMUNICATIONS ==" en.text="== TELECOM =="/>	
+		<check key="telecom:land_line" text="land line" fr.text="Telephone fixe" en.text="land line" default="off" />
+        <check key="telecom:internet" text="internet" fr.text="internet" en.text="internet" default="off" />
+        <check key="telecom:radio" text="radio" fr.text="poste de radio" en.text="radio" default="off" />
+		<label text=" " />
+		<label text="== POWER ==" fr.text="== ALIMENTATION ELECTRIQUE ==" en.text="== POWER =="/>			
+		<combo key="generator:source" text="Power source" fr.text="Source d'alimentation electrique" en.text="Power source"
+           values="electricity_network,generator,solar power,inverter,no,unspecified" 
+           display_values="reseau electrique,generateur,énergie solaire,alimentation Inverter,aucune,non precise"
+           en.display_values="electricity_network,generator,solar power,inverter,no,unspecified"/>
+		<text key="generator:source_others" text="Other power source" fr.text="Autre source d'alimentation" en.text="Other power source" />
+		<label text=" " />
+		<label text="== EQUIPMENTS ==" fr.text="== EQUIPEMENTS ==" en.text="== EQUIPMENTS =="/>		
+		<check key="kitchen" text="Kitchen" fr.text="Cuisine" en.text="Kitchen" default="off" />
+		<check key="cafeteria" text="Cafeteria" fr.text="Cantine" en.text="Cafeteria" default="off" />
+		<check key="store" text="Store" fr.text="Depot" en.text="Store" default="off" />
+		<check key="first_aid" text="First Aid" fr.text="Premiers secours" en.text="First Aid" default="off" />
+		<check key="infirmary" text="Infirmary" fr.text="Infirmerie" en.text="Infirmary" default="off" />
+		<check key="clinic" text="Clinic" fr.text="Dispensaire" en.text="Clinic" default="off" />
+		<label text=" " />
+		<label text="== OPENING DAYS AND HOURS ==" fr.text="== JOURS ET HEURES DE FONCTIONNEMENT ==" en.text="== OPENING DAYS AND HOURS =="/>
+		<check key="opening_hours:monday" text="Monday" fr.text="Lundi" en.text="Monday" default="off" />
+		<check key="opening_hours:tuesday" text="Tuesday" fr.text="Mardi" en.text="Tuesday" />
+		<check key="opening_hours:wednesday" text="Wednesday" fr.text="Mercredi" en.text="Wednesday" default="off" />
+		<check key="opening_hours:thursday" text="Thursday" fr.text="Jeudi" en.text="Thursday" default="off" />
+		<check key="opening_hours:friday" text="Friday" fr.text="Vendredi" en.text="Friday" default="off" />
+		<check key="opening_hours:saturday" text="Saturday" fr.text="Samedi" en.text="Saturday" default="off" />
+		<check key="opening_hours:sunday" text="Sunday" fr.text="Dimanche" en.text="Sunday" default="off" />
+		<label text=" " />
+		<check key="opening_hours:morning" text="Morning" fr.text="Matin" en.text="Morning" default="off" />		
+		<check key="opening_hours:afternoon" text="Afternoon" fr.text="Apres-midi" en.text="Afternoon" default="off" />		
+		<check key="opening_hours:night" text="Night" fr.text="Nuit" en.text="Night" default="off" />
+		<label text=" " />
+		<check key="opening_hours:unspecified" text="Unspecified" fr.text="Non precise" en.text="Unspecified" default="off" />		
+		<label text=" " />
+		<label text="== ATTENDANCE ==" fr.text="== FREQUENTATION ==" en.text="== ATTENDANCE =="/>			
+		<text key="employees:morning" text="Number of employees on the morning" fr.text="Nombre d'employes le matin" en.text="Number of employees on the morning" />
+		<text key="employees:afternoon" text="Number of employees on the afternoon" fr.text="Nombre d'employes l'apres-midi" en.text="Number of employees on the afternoon" />
+		<text key="employees:evening" text="Number of employees on the evening" fr.text="Nombre d'employes le soir" en.text="Number of employees on the evening" />
+		<text key="employees:night" text="Number of employees during the night" fr.text="Nombre d'employes la nuit" en.text="Number of employees during the night" />
+		<label text=" " />
+		<text key="public_adults:morning" text="Number of adult visitors on the morning" fr.text="Nombre de visiteurs adultes le matin" en.text="Number of adult visitors on the morning"/>
+		<text key="public_adults:afternoon" text="Number of adult visitors on the afternoon" fr.text="Nombre de visiteurs adultes l'apres-midi" en.text="Number of adult visitors on the afternoon"/>
+		<text key="public_adults:evening" text="Number of adult visitors on the evening" fr.text="Nombre de visiteurs adultes le soir" en.text="Number of adult visitors on the evening"/>
+		<text key="public_adults:night" text="Number of adult visitors during the night" fr.text="Nombre de visiteurs adultes la nuit" en.text="Number of adult visitors during the night"/>
+		<label text=" " />
+		<text key="public_under18:morning" text="Number of visitors under 18 on the morning" fr.text="Nombre de visiteurs enfants le matin" en.text="Number of visitors under 18 on the morning"/>
+		<text key="public_under18:afternoon" text="Number of visitors under 18 on the afternoon" fr.text="Nombre de visiteurs enfants l'apres-midi" en.text="Number of visitors under 18 on the afternoon"/>
+		<text key="public_under18:evening" text="Number of visitors under 18 on the evening" fr.text="Nombre de visiteurs enfants le soir" en.text="Number of visitors under 18 on the evening"/>
+		<text key="public_under18:night" text="Number of visitors under 18 during the night" fr.text="Nombre de visiteurs enfants la nuit" en.text="Number of visitors under 18 during the night"/>
+		<label text=" " />
+		<label text="== SOURCE ==" fr.text="== SOURCE ==" en.text="== SOURCE =="/>		
+       	<text key="geometry_source_name" text="Geometry source name" fr.text="Nom de la source geometrique" en.text="Geometry source name" />
+        <combo key="geometry_source_type" text="Geometry source type" fr.text="Type de la source geometrique" en.text="Geometry source type" 
+        	values="field_mission_gps_walking_paper,field_mission_gps,field_mission_walking_paper,satellite_imagery,maps,gis_dataset,unspecified"
+        	display_values="field mission with gps and walking paper,field mission with only gps,field mission with only walking paper,satellite imagery,maps,gis dataset,unspecified" 
+			fr.display_values="mission de terrain avec GPS et walking paper,mission de terrain avec GPS seul,mission de terrain avec walking paper seul,image satellite,carte,base de donnees georeferencee,non precise"
+        	en.display_values="field mission with gps and walking paper,field mission with only gps,field mission with only walking paper,satellite imagery,maps,gis dataset,unspecified" required="true"/>
+        <text key="geometry_source_date" text="Geometry source date (DD/MM/YYYY)" fr.text="Date de la source geometrique (JJ/MM/AAAA)" en.text="Geometry source date (DD/MM/YYYY)"/>
+        <text key="attribute_source_name" text="Attribute source name" fr.text="Nom de la source attributaire" en.text="Attribute source name" />
+        <combo key="attribute_source_type" text="Attribute source type" fr.text="Type de la source attributaire"  en.text="Attribute source type" 
+        	values="field_mission,report,unspecified"
+        	display_values="field mission,report,unspecified"
+			fr.display_values="mission de terrain,rapport,non precise"
+        	en.display_values="field mission,report,unspecified" required="true"/>
+        <text key="attribute_source_date" text="Attribute source date (DD/MM/YYYY)" fr.text="Date de la source attributaire (JJ/MM/AAAA)" en.text="Attribute source date (DD/MM/YYYY)" />
+		<label text=" " />
+        <text key="NOTE" text="NOTE" fr.text="NOTES" en.text="NOTE" />
+		<label text=" " />
+	</item>
+	<item name="Place of worship" fr.name="Lieu de culte" en.name="Place of worship" type="node,closedway,relation" icon="presets/church.png">
+		<key key="IOM:project" value="DRR" />
+		<key key="amenity" value="place_of_worship" />
+		<label text="== SURVEYOR INFORMATION ==" fr.text="== INFORMATION ENQUETEUR ==" en.text="== SURVEYOR INFORMATION =="/>
+		<text key="surveyor:name" text="Surveyor(s) Name" fr.text="Nom du ou des enquêteurs" en.text="Surveyor(s) Name"/>		
+		<text key="surveyor:email" text="Surveyor(s) Email" fr.text="Email du ou des enquêteurs" en.text="Surveyor(s) Email"/>		
+		<text key="surveyor:phone" text="Surveyor(s) phone number" fr.text="Telephone du ou des enquêteurs" en.text="Surveyor(s) phone number"/>		
+		<text key="surveyor:GPS" text="Surveyor(s) GPS ID number" fr.text="Numero de GPS du ou des enquêteurs" en.text="Surveyor(s) GPS ID number"/>		
+		<label text=" " />
+		<label text="== NAME OF THE PLACE OF WORSHIP ==" fr.text="== NOM DU LIEU DE CULTE ==" en.text="== NAME OF THE PLACE OF WORSHIP =="/>
+		<text key="name" text="* Name" fr.text="* Nom" en.text="* Name"/>
+		<text key="name:en" text="Name English" fr.text="Nom en anglais" en.text="Name English"/>
+		<text key="name:fr" text="Name French" fr.text="Nom en francais" en.text="Name French"/>
+		<text key="name:kr" text="Name Kreyol" fr.text="Nom en creole" en.text="Name Kreyol"/>
+		<text key="registry_name" text="Registry Name" fr.text="Nom dans base de donnees" en.text="Registry Name"/>
+		<label text=" " />
+		<label text="== ID ==" en.text="== ID =="/>
+		<text key="id:uid" text="UID" fr.text="UID" en.text="UID"/>
+		<text key="id:uuid" text="UUID" fr.text="UUID" en.text="UUID"/>
+		<label text=" " />
+		<label text="== PICTURE ==" fr.text="== PHOTO ==" en.text="== PICTURE =="/>
+		<!--<text key="photo_num" text="Picture number" fr.text="Numero de la photo" en.text="Picture number"/>
+		<text key="photo_name" text="Picture file name" fr.text="Nom de fichier de la photo" en.text="Picture file name"/>
+		-->
+		<text key="photo_url" text="URL of Uploaded picture or picture album on FLICKR" fr.text="URL de la photo uploadee ou de l'album sur FLICKR " en.text="URL of Uploaded picture or picture album on FLICKR"/>
+		<label text=" " />
+		<label text="== ADDRESS DETAILS ==" fr.text="== ADRESSE DETAILS ==" en.text="== ADDRESS DETAILS =="/>
+		<!--<text key="addr:country_national_code" text="Country Code 2 letters ISO 3166-1" fr.text="Code de pays a deux lettres ISO 3166-1 alpha-2" en.text="Country Code 2 letters ISO 3166-1"/>
+		<text key="addr:country" text="Country Name" fr.text="Nom du pays" en.text="Country Name"/>
+		-->
+		<text key="addr:city" text="* City Name" fr.text="* Nom de la ville" en.text="* City Name"/>
+		<text key="addr:ward" text="Ward" fr.text="District, zone ou quartier" en.text="Ward"/>
+		<!--		  <text key="addr:postal_code" text="Postal Code" fr.text="Code postal" en.text="Postal Code"/>
+		-->
+		<text key="addr:street" text="* Street Name" fr.text="* Nom de la rue" en.text="* Street Name"/>
+		<text key="addr:housenumber" text="* Building number" fr.text="* Numero du batiment " en.text="* Building number"/>
+		<text key="addr:full" text="* Full Address" fr.text="* Adresse complete " en.text="* Full Address" />
+		<!--	<text key="Pcode" text="Pcode" fr.text="Pcode" en.text="Pcode"/>
+				<text key="boundary_admin_level1_name" text="Name of the level 1 administrative boundary" fr.text="Nom de l'entite administrative de rang 1" en.text="Name of the level 1 administrative boundary"/>
+				<text key="boundary_admin_level2_name" text="Name of the level 2 administrative boundary" fr.text="Nom de l'entite administrative de rang 2" en.text="Name of the level 2 administrative boundary"/>
+				<text key="boundary_admin_level3_name" text="Name of the level 3 administrative boundary" fr.text="Nom de l'entite administrative de rang 3" en.text="Name of the level 3 administrative boundary"/>
+				<text key="boundary_admin_level4_name" text="Name of the level 4 administrative boundary" fr.text="Nom de l'entite administrative de rang 4" en.text="Name of the level 4 administrative boundary"/>
+		-->		  
+		<text key="place:area" text="Place Name" fr.text="Nom de la localité (zone)" en.text="Place Name"/>
+		<text key="place:area_alternate" text="Alternate Place Name" fr.text="Nom d'usage de la localité (zone)" en.text="Alternate Place Name"/>
+		<text key="place:description" text="Place Description" fr.text="Description de la localité (zone)" en.text="Place Description"/>
+		<text key="place:nearestlandmark" text="Place nearest Landmark" fr.text="Point remarquable le plus proche" en.text="Place nearest Landmark"/>
+		<!--	<text key="block" text="Block" fr.text="Bloc, pate de maisons" en.text="Block"/>
+		-->
+		<label text=" " />
+		<label text="== ACCESSIBILITY ==" fr.text="== ACCESSIBILITE ==" en.text="== ACCESSIBILITY =="/>
+		<combo key="prac" text="Practicability" fr.text="Praticabilite" en.text="Practicability"
+			values="non_motorized,motorbike,4wd_less_than_3.5mt,light_truck_less_than_10mt,heavy_truck_less_than_20mt,truck_+_trailer_greater_than_20mt,unspecified" 
+			display_values="non motorized,motorbike,4wd less than 3.5mt,light truck less than 10mt,heavy truck less than 20mt,truck + trailer greater than 20mt,unspecified"
+			fr.display_values="pieton,moto,4x4 de moins de 3.5t,camion de moins de 10t,camion de moins de 20t,camion de plus de 20t,non precise"
+			en.display_values="non motorized,motorbike,4wd less than 3.5mt,light truck less than 10mt,heavy truck less than 20mt,truck + trailer greater than 20mt,unspecified" required="true" />
+		<label text=" " />
+		<label text="== BUILDING ==" fr.text="== BATIMENT =" en.text="== BUILDING =="/>		
+		<label text="Building base material" fr.text="Materiaux du Batiment" en.text="Building base material" />
+		<check key="building_base_material:reinforced_concrete" text="reinforced concrete" fr.text="beton arme" en.text="reinforced concrete" default="off" />
+		<check key="building_base_material:concrete" text="concrete" fr.text="dur" en.text="concrete" default="off" />
+		<check key="building_base_material:sheet_metal" text="sheet metal" fr.text="tole" en.text="sheet metal" default="off" />
+		<check key="building_base_material:wood" text="wood" fr.text="bois" en.text="wood" default="off" />
+		<check key="building_base_material:pvc" text="PVC" fr.text="PVC" en.text="PVC" default="off" />
+		<check key="building_base_material:canvas" text="canvas" fr.text="toile" en.text="canvas" default="off" />
+		<check key="building_base_material:plastic_sheeting" text="plastic sheeting, prelat" fr.text="bache plastique, prelat" en.text="plastic sheeting, prelat" default="off" />
+		<check key="building_base_material:tent" text="tent" fr.text="tente" en.text="tent" default="off" />
+		<check key="building_base_material:unspecified" text="unspecified" fr.text="non precise" en.text="unspecified" default="off" />
+		<label text=" " />		  
+ 		<label text="Building roof materials" fr.text="Materiaux du toit" en.text="Building roof materials" />
+		<check key="building_roof_material:tiles" text="tiles" fr.text="tuiles" en.text="tiles" default="off" />
+		<check key="building_roof_material:concrete" text="concrete" fr.text="beton" en.text="concrete" default="off" />
+		<check key="building_roof_material:stone" text="stone" fr.text="pierre" en.text="stone" default="off" />
+		<check key="building_roof_material:sheet_metal" text="sheet metal" fr.text="tole" en.text="sheet metal" default="off" />
+		<check key="building_roof_material:wood" text="wood" fr.text="bois" en.text="wood" default="off" />
+		<check key="building_roof_material:pvc" text="PVC" fr.text="PVC" en.text="PVC" default="off" />
+		<check key="building_roof_material:canvas" text="canvas" fr.text="toile" en.text="canvas" default="off" />
+		<check key="building_roof_material:plastic_sheeting" text="plastic sheeting, prelat" fr.text="bache plastique, prelat" en.text="plastic sheeting, prelat" default="off" />
+		<check key="building_roof_material:tent" text="tent" fr.text="tente" en.text="tent" default="off" />
+		<check key="building_roof_material:unspecified" text="unspecified" fr.text="non precise" en.text="unspecified" default="off" />
+ 		<label text=" " />		
+		<combo key="building_status" text="* Building status" fr.text="* Etat Batiment" en.text="* Building status"
+            values="good,medium,bad,unspecified"
+            display_values="good,medium,bad,unspecified"
+			fr.display_values="bon,moyen,mauvais,non precise"
+            en.display_values="good,medium,bad,unspecified"/>
+		<combo key="operational_status" text="Operational status" fr.text="Statut operationnel" en.text="Operational status" 
+			values="open,restricted,closed,unspecified" 
+			display_values="open,restricted,closed,unspecified"
+			fr.display_values="ouvert,restreint,ferme,non precise" 
+			en.display_values="open,restricted,closed,unspecified" required="true"/>
+		<combo key="operational_status_quality" text="Operational status quality" fr.text="Qualite de l'Information sur le statut operationnel" en.text="Operational status quality" 
+        	values="reported,confirmed,unspecified" 
+        	display_values="reported,confirmed,unspecified" 
+			fr.display_values="rapporte,confirme,non precise"
+			en.display_values="reported,confirmed,unspecified" required="true"/>
+		<label text=" " />
+		<label text="== CAPACITIES ==" fr.text="== CAPACITES ==" en.text="== CAPACITIES =="/>				
+		<text key="capacity" text="Capacity max" fr.text="Capacite en nombre maxi de places" en.text="Capacity max"/>
+		<text key="capacity:seats" text="Seated capacity max" fr.text="Capacite maximum de places assises" en.text="Seated capacity max"/>
+		<text key="capacity:standing" text="Standing capacity max" fr.text="Capacite maximum de places debout" en.text="Standing capacity max"/>
+		<label text=" " />
+		<label text="== TELECOM ==" fr.text="== TELECOMMUNICATIONS ==" en.text="== TELECOM =="/>	
+		<check key="telecom:land_line" text="land line" fr.text="Telephone fixe" en.text="land line" default="off" />
+        <check key="telecom:internet" text="internet" fr.text="internet" en.text="internet" default="off" />
+        <check key="telecom:radio" text="radio" fr.text="poste de radio" en.text="radio" default="off" />
+		<label text=" " />
+		<label text="== POWER ==" fr.text="== ALIMENTATION ELECTRIQUE ==" en.text="== POWER =="/>	
+		<combo key="generator:source" text="Power source" fr.text="Source d'alimentation electrique" en.text="Power source"
+           values="electricity_network,generator,solar power,inverter,no,unspecified" 
+           display_values="reseau electrique,generateur,énergie solaire,alimentation Inverter,aucune,non precise"
+           en.display_values="electricity_network,generator,solar power,inverter,no,unspecified"/>
+		<text key="generator:source_others" text="Other power source" fr.text="Autre source d'alimentation" en.text="Other power source" />
+		<label text=" " />
+		<label text="== RELIGION ==" fr.text="== RELIGION ==" en.text="== RELIGION =="/>
+		<combo key="religion" text="Religion" fr.text="Religion" en.text="Religion" 
+        	values="christian,voodoo,muslim,buddhist,jewish,hindu,other,unspecified"
+        	display_values="christian,voodoo,muslim,buddhist,jewish,hindu,other,unspecified"
+			fr.display_values="christianisme,vaudou,islam,bouddhisme,judaisme,hindouisme,autre,non precise"
+        	en.display_values="christian,voodoo,muslim,buddhist,jewish,hindu,other,unspecified" />
+		<combo key="religion:denomination" text="Religion denomination" fr.text="Denomination du culte" en.text="Religion denomination" 
+        	values="pentecostal,baptist,jehovahs_witnesses,adventist,catholic,protestant,methodist,others,unspecified"
+        	display_values="pentecostal,baptist,jehovah's witnesses,adventist,catholic,protestant,methodist,others,unspecified"
+ 			fr.display_values="pencotiste,baptiste,temoins de jehovah,adventiste du 7eme jour,catholique,protestant,methodiste,autres,unspecified"
+        	en.display_values="pentecostal,baptist,jehovah's witnesses,adventist,catholic,protestant,methodist,others,unspecified" />
+		<label text=" " />
+		<label text="== OPENING DAYS AND HOURS ==" fr.text="== JOURS ET HEURES DE FONCTIONNEMENT ==" en.text="== OPENING DAYS AND HOURS =="/>
+		<check key="opening_hours:monday" text="Monday" fr.text="Lundi" en.text="Monday" />
+		<check key="opening_hours:tuesday" text="Tuesday" fr.text="Mardi" en.text="Tuesday" />
+		<check key="opening_hours:wednesday" text="Wednesday" fr.text="Mercredi" en.text="Wednesday" />
+		<check key="opening_hours:thursday" text="Thursday" fr.text="Jeudi" en.text="Thursday" />
+		<check key="opening_hours:friday" text="Friday" fr.text="Vendredi" en.text="Friday" />
+		<check key="opening_hours:saturday" text="Saturday" fr.text="Samedi" en.text="Saturday" />
+		<check key="opening_hours:sunday" text="Sunday" fr.text="Dimanche" en.text="Sunday" />
+		<label text=" " />
+		<check key="opening_hours:morning" text="Morning" fr.text="Matin" en.text="Morning" />		
+		<check key="opening_hours:afternoon" text="Afternoon" fr.text="Apres-midi" en.text="Afternoon" />		
+		<check key="opening_hours:night" text="Night" fr.text="Nuit" en.text="Night" />
+		<label text=" " />
+		<check key="opening_hours:unspecified" text="Unspecified" fr.text="Non precise" en.text="Unspecified" />		
+		<label text=" " />
+		<label text="== ATTENDANCE ==" fr.text="== FREQUENTATION ==" en.text="== ATTENDANCE =="/>			
+		<text key="employees:morning" text="Number of employees on the morning" fr.text="Nombre d'employes le matin" en.text="Number of employees on the morning" />
+		<text key="employees:afternoon" text="Number of employees on the afternoon" fr.text="Nombre d'employes l'apres-midi" en.text="Number of employees on the afternoon" />
+		<text key="employees:evening" text="Number of employees on the evening" fr.text="Nombre d'employes le soir" en.text="Number of employees on the evening" />
+		<text key="employees:night" text="Number of employees during the night" fr.text="Nombre d'employes la nuit" en.text="Number of employees during the night" />
+		<label text=" " />
+		<text key="public_adults:morning" text="Number of adult faithful on the morning" fr.text="Nombre de fideles adultes le matin" en.text="Number of adult faithful on the morning"/>
+		<text key="public_adults:afternoon" text="Number of adult faithful on the afternoon" fr.text="Nombre de fideles adultes l'apres-midi" en.text="Number of adult faithful on the afternoon"/>
+		<text key="public_adults:evening" text="Number of adult faithful on the evening" fr.text="Nombre de fideles adultes le soir" en.text="Number of adult faithful on the evening"/>
+		<text key="public_adults:night" text="Number of adult faithful during the night" fr.text="Nombre de fideles adultes la nuit" en.text="Number of adult faithful during the night"/>
+		<label text=" " />
+		<text key="public_under18:morning" text="Number of faithful under 18 on the morning" fr.text="Nombre de fideles enfants le matin" en.text="Number of faithful under 18 on the morning"/>
+		<text key="public_under18:afternoon" text="Number of faithful under 18 on the afternoon" fr.text="Nombre de fideles enfants l'apres-midi" en.text="Number of faithful under 18 on the afternoon"/>
+		<text key="public_under18:evening" text="Number of faithful under 18 on the evening" fr.text="Nombre de fideles enfants le soir" en.text="Number of faithful under 18 on the evening"/>
+		<text key="public_under18:night" text="Number of faithful under 18 during the night" fr.text="Nombre de fideles enfants la nuit" en.text="Number of faithful under 18 during the night"/>
+		<label text=" " />
+		<label text="== SOURCE ==" fr.text="== SOURCE ==" en.text="== SOURCE =="/>		
+       	<text key="geometry_source_name" text="Geometry source name" fr.text="Nom de la source geometrique" en.text="Geometry source name" />
+        <combo key="geometry_source_type" text="Geometry source type" fr.text="Type de la source geometrique" en.text="Geometry source type" 
+        	values="field_mission_gps_walking_paper,field_mission_gps,field_mission_walking_paper,satellite_imagery,maps,gis_dataset,unspecified"
+        	display_values="field mission with gps and walking paper,field mission with only gps,field mission with only walking paper,satellite imagery,maps,gis dataset,unspecified" 
+			fr.display_values="mission de terrain avec GPS et walking paper,mission de terrain avec GPS seul,mission de terrain avec walking paper seul,image satellite,carte,base de donnees georeferencee,non precise"
+        	en.display_values="field mission with gps and walking paper,field mission with only gps,field mission with only walking paper,satellite imagery,maps,gis dataset,unspecified" required="true"/>
+        <text key="geometry_source_date" text="Geometry source date (DD/MM/YYYY)" fr.text="Date de la source geometrique (JJ/MM/AAAA)" en.text="Geometry source date (DD/MM/YYYY)"/>
+        <text key="attribute_source_name" text="Attribute source name" fr.text="Nom de la source attributaire" en.text="Attribute source name" />
+        <combo key="attribute_source_type" text="Attribute source type" fr.text="Type de la source attributaire"  en.text="Attribute source type" 
+        	values="field_mission,report,unspecified"
+        	display_values="field mission,report,unspecified"
+			fr.display_values="mission de terrain,rapport,non precise"
+        	en.display_values="field mission,report,unspecified" required="true"/>
+        <text key="attribute_source_date" text="Attribute source date (DD/MM/YYYY)" fr.text="Date de la source attributaire (JJ/MM/AAAA)" en.text="Attribute source date (DD/MM/YYYY)" />
+ 		<label text=" " />
+        <text key="NOTE" text="NOTE" fr.text="NOTES" en.text="NOTE" />
+		<label text=" " />
+	</item>
+	<item name="Health facility" fr.name="Structure de sante" en.name="Health facility" type="node,closedway,relation" icon="styles/standard/health/hospital.png">
+		<key key="IOM:project" value="DRR" />
+		<key key="amenity" value="hospital" />
+		<label text="== SURVEYOR INFORMATION ==" fr.text="== INFORMATION ENQUETEUR ==" en.text="== SURVEYOR INFORMATION =="/>
+		<text key="surveyor:name" text="Surveyor(s) Name" fr.text="Nom du ou des enquêteurs" en.text="Surveyor(s) Name"/>		
+		<text key="surveyor:email" text="Surveyor(s) Email" fr.text="Email du ou des enquêteurs" en.text="Surveyor(s) Email"/>		
+		<text key="surveyor:phone" text="Surveyor(s) phone number" fr.text="Telephone du ou des enquêteurs" en.text="Surveyor(s) phone number"/>		
+		<text key="surveyor:GPS" text="Surveyor(s) GPS ID number" fr.text="Numero de GPS du ou des enquêteurs" en.text="Surveyor(s) GPS ID number"/>		
+		<label text=" " />
+		<label text="== NAME OF THE HEALTH FACILITY ==" fr.text="== NOM DE LA STRUCTURE DE SANTE ==" en.text="== NAME OF THE HEALTH FACILITY =="/>
+		<text key="name" text="* Name" fr.text="* Nom" en.text="* Name"/>
+		<text key="name:en" text="Name English" fr.text="Nom en anglais" en.text="Name English"/>
+		<text key="name:fr" text="Name French" fr.text="Nom en francais" en.text="Name French"/>
+		<text key="name:kr" text="Name Kreyol" fr.text="Nom en creole" en.text="Name Kreyol"/>
+		<text key="registry_name" text="Registry Name" fr.text="Nom dans base de donnees" en.text="Registry Name"/>
+		<label text=" " />
+		<label text="== ID ==" en.text="== ID =="/>
+		<text key="id:uid" text="UID" fr.text="UID" en.text="UID"/>
+		<text key="id:uuid" text="UUID" fr.text="UUID" en.text="UUID"/>
+		<label text=" " />
+		<label text="== PICTURE ==" fr.text="== PHOTO ==" en.text="== PICTURE =="/>
+		<text key="photo_url" text="URL of Uploaded picture or picture album on FLICKR" fr.text="URL de la photo uploadee ou de l'album sur FLICKR " en.text="URL of Uploaded picture or picture album on FLICKR"/>
+		<label text=" " />
+		<label text="== ADDRESS DETAILS ==" fr.text="== ADRESSE DETAILS ==" en.text="== ADDRESS DETAILS =="/>
+		<text key="addr:city" text="* City Name" fr.text="* Nom de la ville" en.text="* City Name"/>
+		<text key="addr:ward" text="Ward" fr.text="District, zone ou quartier" en.text="Ward"/>
+		<text key="addr:street" text="* Street Name" fr.text="* Nom de la rue" en.text="* Street Name"/>
+		<text key="addr:housenumber" text="* Building number" fr.text="* Numero du batiment " en.text="* Building number"/>
+		<text key="addr:full" text="* Full Address" fr.text="* Adresse complete " en.text="* Full Address" />
+		<text key="place:area" text="Place Name" fr.text="Nom de la localité (zone)" en.text="Place Name"/>
+		<text key="place:area_alternate" text="Alternate Place Name" fr.text="Nom d'usage de la localité (zone)" en.text="Alternate Place Name"/>
+		<text key="place:description" text="Place Description" fr.text="Description de la localité (zone)" en.text="Place Description"/>
+		<text key="place:nearestlandmark" text="Place nearest Landmark" fr.text="Point remarquable le plus proche" en.text="Place nearest Landmark"/>
+		<label text=" " />
+		<label text="== ACCESSIBILITY ==" fr.text="== ACCESSIBILITE ==" en.text="== ACCESSIBILITY =="/>
+		<combo key="prac" text="Practicability" fr.text="Praticabilite" en.text="Practicability"
+			values="non_motorized,motorbike,4wd_less_than_3.5mt,light_truck_less_than_10mt,heavy_truck_less_than_20mt,truck_+_trailer_greater_than_20mt,unspecified" 
+			display_values="non motorized,motorbike,4wd less than 3.5mt,light truck less than 10mt,heavy truck less than 20mt,truck + trailer greater than 20mt,unspecified"
+			fr.display_values="pieton,moto,4x4 de moins de 3.5t,camion de moins de 10t,camion de moins de 20t,camion de plus de 20t,non precise"
+			en.display_values="non motorized,motorbike,4wd less than 3.5mt,light truck less than 10mt,heavy truck less than 20mt,truck + trailer greater than 20mt,unspecified" required="true" />
+		<label text=" " />
+		<label text="== BUILDING ==" fr.text="== BATIMENT =" en.text="== BUILDING =="/>		
+		<label text="Building base material" fr.text="Materiaux du Batiment" en.text="Building base material" />
+		<check key="building_base_material:reinforced_concrete" text="reinforced concrete" fr.text="beton arme" en.text="reinforced concrete" default="off" />
+		<check key="building_base_material:concrete" text="concrete" fr.text="dur" en.text="concrete" default="off" />
+		<check key="building_base_material:sheet_metal" text="sheet metal" fr.text="tole" en.text="sheet metal" default="off" />
+		<check key="building_base_material:wood" text="wood" fr.text="bois" en.text="wood" default="off" />
+		<check key="building_base_material:pvc" text="PVC" fr.text="PVC" en.text="PVC" default="off" />
+		<check key="building_base_material:canvas" text="canvas" fr.text="toile" en.text="canvas" default="off" />
+		<check key="building_base_material:plastic_sheeting" text="plastic sheeting, prelat" fr.text="bache plastique, prelat" en.text="plastic sheeting, prelat" default="off" />
+		<check key="building_base_material:tent" text="tent" fr.text="tente" en.text="tent" default="off" />
+		<check key="building_base_material:unspecified" text="unspecified" fr.text="non precise" en.text="unspecified" default="off" />
+		<label text=" " />
+		<combo key="building_status" text="Building status" fr.text="Etat Batiment" en.text="Building status"
+            values="good,medium,bad,unspecified"
+            display_values="good,medium,bad,unspecified"
+			fr.display_values="bon,moyen,mauvais,non precise"
+            en.display_values="good,medium,bad,unspecified"/>
+ 		<label text=" " />			
+ 		<label text="Building roof materials" fr.text="Materiaux du toit" en.text="Building roof materials" />
+		<check key="building_roof_material:tiles" text="tiles" fr.text="tuiles" en.text="tiles" default="off" />
+		<check key="building_roof_material:concrete" text="concrete" fr.text="beton" en.text="concrete" default="off" />
+		<check key="building_roof_material:stone" text="stone" fr.text="pierre" en.text="stone" default="off" />
+		<check key="building_roof_material:sheet_metal" text="sheet metal" fr.text="tole" en.text="sheet metal" default="off" />
+		<check key="building_roof_material:wood" text="wood" fr.text="bois" en.text="wood" default="off" />
+		<check key="building_roof_material:pvc" text="PVC" fr.text="PVC" en.text="PVC" default="off" />
+		<check key="building_roof_material:canvas" text="canvas" fr.text="toile" en.text="canvas" default="off" />
+		<check key="building_roof_material:plastic_sheeting" text="plastic sheeting, prelat" fr.text="bache plastique, prelat" en.text="plastic sheeting, prelat" default="off" />
+		<check key="building_roof_material:tent" text="tent" fr.text="tente" en.text="tent" default="off" />
+		<check key="building_roof_material:unspecified" text="unspecified" fr.text="non precise" en.text="unspecified" default="off" />
+ 		<label text=" " />
+		<combo key="roof_status" text="Roof status" fr.text="Etat toiture" en.text="Roof status"
+            values="good,medium,bad,unspecified"
+            display_values="good,medium,bad,unspecified"
+			fr.display_values="bon,moyen,mauvais,non precise"
+            en.display_values="good,medium,bad,unspecified"/>		
+		<label text=" " />
+		<combo key="operational_status" text="Operational status" fr.text="Statut operationnel" en.text="Operational status" 
+			values="open,restricted,closed,unspecified" 
+			display_values="open,restricted,closed,unspecified"
+			fr.display_values="ouvert,restreint,ferme,non precise" 
+			en.display_values="open,restricted,closed,unspecified" required="true"/>
+		<combo key="operational_status_quality" text="Operational status quality" fr.text="Qualite de l'Information sur le statut operationnel" en.text="Operational status quality" 
+        	values="reported,confirmed,unspecified" 
+        	display_values="reported,confirmed,unspecified" 
+			fr.display_values="rapporte,confirme,non precise"/>
+		<label text=" " />
+		<label text="== POWER ==" fr.text="== ALIMENTATION ELECTRIQUE ==" en.text="== POWER =="/>			
+		<combo key="generator:source" text="Power source" fr.text="Source d'alimentation electrique" en.text="Power source"
+           values="electricity_network,generator,solar power,inverter,no,unspecified" 
+           display_values="reseau electrique,generateur,énergie solaire,alimentation Inverter,aucune,non precise"
+           en.display_values="electricity_network,generator,solar power,inverter,no,unspecified"/>
+		<text key="generator:source_others" text="Other power source" fr.text="Autre source d'alimentation" en.text="Other power source" />
+		<label text=" " />		
+		<combo key="operator_type" text="== OPERATOR TYPE ==" fr.text="== TYPE D'OPERATEUR ==" en.text="== OPERATOR TYPE ==" 
+			values="public_laic,public_congregationnist,religious_based_NGO,non_religious_based_NGO,private_religious,private_laic,community,other" 
+			display_values="laic public facility,public congregationnist facility,religious based NGO,non religious based NGO,private religious,private laic,community,other"
+			fr.display_values="laic public,public congregationniste,ONG a base religieuse,ONG sans base religieuse,prive religieux,prive laic,communaute,autre"
+			en.display_values="laic public facility,public congregationnist facility,religious based NGO,non religious based NGO,private religious,private laic,community,other" required="true"/>
+		<text key="operator_type_other" text="Precise if other" fr.name="Preciser si autre" en.text="Precise if other" />
+		<label text=" " />
+		<combo key="amenity" text="== HEALTH FACILITY TYPE ==" fr.text="== TYPE DE STRUCTURE DE SANTE ==" en.text="== HEALTH FACILITY TYPE ==" 
+			values="kindergarten,community_centre,school,college,university,professional_school"
+			display_values="kindergarten,community centre,school,college,university,professional school"
+			fr.display_values="kindergarten ou maternelle,centre de loisirs,ecole,lycee,universite,ecole professionnelle"			
+			en.display_values="kindergarten,community centre,school,college,university,professional school"	/>
+		<label text=" " />
+        <combo key="health_facility_type" text="Health facility type" fr.text="Type de structure de sante" en.text="Health facility type"  
+            values="specialized_hospital,hospital,field_hospital,cal_health_center_with_beds,csl_health_center_without_beds,dispensary,other,unspecified" 
+            display_values="specialized hospital,hospital,field hospital,cal health center with beds,csl health center without beds,dispensary,other,unspecified"
+			fr.display_values="hopital specialise,hopital,hopital de terrain,CAL-centre de sante avec lits,CSL-centre de sante sans lits,dispensaire,autre,non precise"
+            en.display_values="specialized hospital,hospital,field hospital,cal health center with beds,csl health center without beds,dispensary,other,unspecified"/>
+ 		<label text=" " />
+		<label text="== CHOLERA ==" fr.text="== CHOLERA ==" en.text="== CHOLERA ==" />
+        <combo key="healthcare:cholera" text="Cholera treatment" fr.text="Traitement du cholera" en.text="Cholera treatment"
+            values="oral_rehydratation_centre,cholera_treatment_unit,cholera_treatment_centre,no,unspecified"
+            display_values="oral rehydratation centre,cholera treatment unit,cholera treatment centre,no,unspecified"
+            fr.display_values="Centre de rehydratation orale,Unite de traitement du choler,Centre de traitement du cholera,non,non precise"
+            en.display_values="oral rehydratation centre,cholera treatment unit,cholera treatment centre,no,unspecified"/>
+		<text key="id:db_ctc" text="ID CTC from MSPP" fr.text="ID CTC du MSPP" en.text="ID CTC from MSPP" />
+ 		<label text=" " />		
+		<label text="== TELECOM ==" fr.text="== TELECOMMUNICATIONS ==" en.text="== TELECOM =="/>	
+		<check key="telecom:land_line" text="land line" fr.text="Telephone fixe" en.text="land line" default="off" />
+        <check key="telecom:internet" text="internet" fr.text="internet" en.text="internet" default="off" />
+        <check key="telecom:radio" text="radio" fr.text="poste de radio" en.text="radio" default="off" />
+ 		<label text=" " />
+		<label text="== MEDICAL DEPARTMENTS ==" fr.text="== SERVICES DE SANTE ==" en.text="== MEDICAL DEPARTMENTS =="/>	
+		<check key="healthcare_departments:general_medicine" text="General medecine" fr.text="Medecine generale" en.text="General medecine" />
+        <check key="healthcare_departments:operating_room" text="Operating room" fr.text="Salle d'operation" en.text="Operating room" />
+        <check key="healthcare_departments:medical_laboratory" text="Medical laboratory" fr.text="Laboratoire medical" en.text="Medical laboratory" />
+		<text key="healthcare_departments:others" text="Other specialized medical departments" fr.text="Autres services specialises" en.text="Other specialized medical departments"/>
+ 		<label text=" " />			
+		<text key="healthcare_departments:ambulances" text="Number of ambulances" fr.text="Nombre d'ambulances" en.text="Number of ambulances"/>
+ 		<label text=" " />				
+		<label text="== CAPACITIES ==" fr.text="== CAPACITES ==" en.text="== CAPACITIES =="/>				
+		<text key="capacity:seats" text="Seated capacity max" fr.text="Capacite maximum de places assises" en.text="Seated capacity max"/>
+		<text key="capacity:standing" text="Standing capacity max" fr.text="Capacite maximum de places debout" en.text="Standing capacity max"/>
+		<text key="capacity:beds" text="Beds capacity max" fr.text="Capacite en nombre maxi de lits" en.text="Beds capacity max"/>
+		<label text=" " />
+        <text key="doctors" text="Number of doctors" fr.text="Nombre de docteurs" en.text=" Number of doctors" />
+        <text key="nurses" text="Number of nurses" fr.text="Nombre d'infirmier(e)s" en.text="Number of nurses"/>
+        <text key="employees_non_medical" text="Number of non medical staff" fr.text="Nombre de personnel non medical" en.text="Number of non medical staff"/>
+		<label text=" " />
+		<label text="== OPENING DAYS AND HOURS ==" fr.text="== JOURS ET HEURES DE FONCTIONNEMENT ==" en.text="== OPENING DAYS AND HOURS =="/>
+		<check key="opening_hours:monday" text="Monday" fr.text="Lundi" en.text="Monday" default="off" />
+		<check key="opening_hours:tuesday" text="Tuesday" fr.text="Mardi" en.text="Tuesday" />
+		<check key="opening_hours:wednesday" text="Wednesday" fr.text="Mercredi" en.text="Wednesday" default="off" />
+		<check key="opening_hours:thursday" text="Thursday" fr.text="Jeudi" en.text="Thursday" default="off" />
+		<check key="opening_hours:friday" text="Friday" fr.text="Vendredi" en.text="Friday" default="off" />
+		<check key="opening_hours:saturday" text="Saturday" fr.text="Samedi" en.text="Saturday" default="off" />
+		<check key="opening_hours:sunday" text="Sunday" fr.text="Dimanche" en.text="Sunday" default="off" />
+		<label text=" " />
+		<check key="opening_hours:morning" text="Morning" fr.text="Matin" en.text="Morning" default="off" />		
+		<check key="opening_hours:afternoon" text="Afternoon" fr.text="Apres-midi" en.text="Afternoon" default="off" />		
+		<check key="opening_hours:night" text="Night" fr.text="Nuit" en.text="Night" default="off" />
+		<label text=" " />
+		<check key="opening_hours:unspecified" text="Unspecified" fr.text="Non precise" en.text="Unspecified" default="off" />		
+		<label text=" " />
+		<label text="== ATTENDANCE ==" fr.text="== FREQUENTATION ==" en.text="== ATTENDANCE =="/>			
+		<text key="employees:morning" text="Number of employees on the morning" fr.text="Nombre d'employes le matin" en.text="Number of employees on the morning" />
+		<text key="employees:afternoon" text="Number of employees on the afternoon" fr.text="Nombre d'employes l'apres-midi" en.text="Number of employees on the afternoon" />
+		<text key="employees:evening" text="Number of employees on the evening" fr.text="Nombre d'employes le soir" en.text="Number of employees on the evening" />
+		<text key="employees:night" text="Number of employees during the night" fr.text="Nombre d'employes la nuit" en.text="Number of employees during the night" />
+		<label text=" " />
+		<text key="public_adults:morning" text="Number of adult visitors on the morning" fr.text="Nombre de visiteurs adultes le matin" en.text="Number of adult visitors on the morning"/>
+		<text key="public_adults:afternoon" text="Number of adult visitors on the afternoon" fr.text="Nombre de visiteurs adultes l'apres-midi" en.text="Number of adult visitors on the afternoon"/>
+		<text key="public_adults:evening" text="Number of adult visitors on the evening" fr.text="Nombre de visiteurs adultes le soir" en.text="Number of adult visitors on the evening"/>
+		<text key="public_adults:night" text="Number of adult visitors during the night" fr.text="Nombre de visiteurs adultes la nuit" en.text="Number of adult visitors during the night"/>
+		<label text=" " />
+		<text key="public_under18:morning" text="Number of visitors under 18 on the morning" fr.text="Nombre de visiteurs enfants le matin" en.text="Number of visitors under 18 on the morning"/>
+		<text key="public_under18:afternoon" text="Number of visitors under 18 on the afternoon" fr.text="Nombre de visiteurs enfants l'apres-midi" en.text="Number of visitors under 18 on the afternoon"/>
+		<text key="public_under18:evening" text="Number of visitors under 18 on the evening" fr.text="Nombre de visiteurs enfants le soir" en.text="Number of visitors under 18 on the evening"/>
+		<text key="public_under18:night" text="Number of visitors under 18 during the night" fr.text="Nombre de visiteurs enfants la nuit" en.text="Number of visitors under 18 during the night"/>
+		<label text=" " />
+		<label text="== SOURCE ==" fr.text="== SOURCE ==" en.text="== SOURCE =="/>		
+       	<text key="geometry_source_name" text="Geometry source name" fr.text="Nom de la source geometrique" en.text="Geometry source name" />
+        <combo key="geometry_source_type" text="Geometry source type" fr.text="Type de la source geometrique" en.text="Geometry source type" 
+        	values="field_mission_gps_walking_paper,field_mission_gps,field_mission_walking_paper,satellite_imagery,maps,gis_dataset,unspecified"
+        	display_values="field mission with gps and walking paper,field mission with only gps,field mission with only walking paper,satellite imagery,maps,gis dataset,unspecified" 
+			fr.display_values="mission de terrain avec GPS et walking paper,mission de terrain avec GPS seul,mission de terrain avec walking paper seul,image satellite,carte,base de donnees georeferencee,non precise"
+        	en.display_values="field mission with gps and walking paper,field mission with only gps,field mission with only walking paper,satellite imagery,maps,gis dataset,unspecified" required="true"/>
+        <text key="geometry_source_date" text="Geometry source date (DD/MM/YYYY)" fr.text="Date de la source geometrique (JJ/MM/AAAA)" en.text="Geometry source date (DD/MM/YYYY)"/>
+        <text key="attribute_source_name" text="Attribute source name" fr.text="Nom de la source attributaire" en.text="Attribute source name" />
+        <combo key="attribute_source_type" text="Attribute source type" fr.text="Type de la source attributaire"  en.text="Attribute source type" 
+        	values="field_mission,report,unspecified"
+        	display_values="field mission,report,unspecified"
+			fr.display_values="mission de terrain,rapport,non precise"
+        	en.display_values="field mission,report,unspecified" required="true"/>
+        <text key="attribute_source_date" text="Attribute source date (DD/MM/YYYY)" fr.text="Date de la source attributaire (JJ/MM/AAAA)" en.text="Attribute source date (DD/MM/YYYY)" />
+		<label text=" " />
+        <text key="NOTE" text="NOTE" fr.text="NOTES" en.text="NOTE" />
+		<label text=" " />
+	</item>
+	<item name="Market place" fr.name="Marche" en.name="Market place" type="node,way,closedway,relation" icon="styles/standard/place/marketplace.png" >
+		<key key="IOM:project" value="DRR" />
+		<key key="amenity" value="marketplace"/>
+		<label text="== SURVEYOR INFORMATION ==" fr.text="== INFORMATION ENQUETEUR ==" en.text="== SURVEYOR INFORMATION =="/>
+		<text key="surveyor:name" text="Surveyor(s) Name" fr.text="Nom du ou des enquêteurs" en.text="Surveyor(s) Name"/>		
+		<text key="surveyor:email" text="Surveyor(s) Email" fr.text="Email du ou des enquêteurs" en.text="Surveyor(s) Email"/>		
+		<text key="surveyor:phone" text="Surveyor(s) phone number" fr.text="Telephone du ou des enquêteurs" en.text="Surveyor(s) phone number"/>		
+		<text key="surveyor:GPS" text="Surveyor(s) GPS ID number" fr.text="Numero de GPS du ou des enquêteurs" en.text="Surveyor(s) GPS ID number"/>		
+		<label text=" " />
+		<label text="== NAME OF THE MARKET PLACE ==" fr.text="== NOM DU MARCHE ==" en.text="== NAME OF THE MARKET PLACE =="/>
+		<text key="name" text="* Name" fr.text="* Nom" en.text="* Name"/>
+		<text key="name:en" text="Name English" fr.text="Nom en anglais" en.text="Name English"/>
+		<text key="name:fr" text="Name French" fr.text="Nom en francais" en.text="Name French"/>
+		<text key="name:kr" text="Name Kreyol" fr.text="Nom en creole" en.text="Name Kreyol"/>
+		<text key="registry_name" text="Registry Name" fr.text="Nom dans base de donnees" en.text="Registry Name"/>
+		<label text=" " />
+		<label text="== ID ==" en.text="== ID =="/>
+		<text key="id:uid" text="UID" fr.text="UID" en.text="UID"/>
+		<text key="id:uuid" text="UUID" fr.text="UUID" en.text="UUID"/>
+		<label text=" " />
+		<label text="== PICTURE ==" fr.text="== PHOTO ==" en.text="== PICTURE =="/>
+		<text key="photo_url" text="URL of Uploaded picture or picture album on FLICKR" fr.text="URL de la photo uploadee ou de l'album sur FLICKR " en.text="URL of Uploaded picture or picture album on FLICKR"/>
+		<label text=" " />
+		<label text="== ADDRESS DETAILS ==" fr.text="== ADRESSE DETAILS ==" en.text="== ADDRESS DETAILS =="/>
+		<text key="addr:city" text="* City Name" fr.text="* Nom de la ville" en.text="* City Name"/>
+		<text key="addr:ward" text="Ward" fr.text="District, zone ou quartier" en.text="Ward"/>
+		<text key="addr:street" text="* Street Name" fr.text="* Nom de la rue" en.text="* Street Name"/>
+		<text key="addr:housenumber" text="* Building number" fr.text="* Numero du batiment " en.text="* Building number"/>
+		<text key="addr:full" text="* Full Address" fr.text="* Adresse complete " en.text="* Full Address" />
+ 		<text key="place:area" text="Place Name" fr.text="Nom de la localité (zone)" en.text="Place Name"/>
+		<text key="place:area_alternate" text="Alternate Place Name" fr.text="Nom d'usage de la localité (zone)" en.text="Alternate Place Name"/>
+		<text key="place:description" text="Place Description" fr.text="Description de la localité (zone)" en.text="Place Description"/>
+		<text key="place:nearestlandmark" text="Place nearest Landmark" fr.text="Point remarquable le plus proche" en.text="Place nearest Landmark"/>
+		<label text=" " />
+		<label text="== ACCESSIBILITY ==" fr.text="== ACCESSIBILITE ==" en.text="== ACCESSIBILITY =="/>
+		<combo key="prac" text="Practicability" fr.text="Praticabilite" en.text="Practicability"
+			values="non_motorized,motorbike,4wd_less_than_3.5mt,light_truck_less_than_10mt,heavy_truck_less_than_20mt,truck_+_trailer_greater_than_20mt,unspecified" 
+			display_values="non motorized,motorbike,4wd less than 3.5mt,light truck less than 10mt,heavy truck less than 20mt,truck + trailer greater than 20mt,unspecified"
+			fr.display_values="pieton,moto,4x4 de moins de 3.5t,camion de moins de 10t,camion de moins de 20t,camion de plus de 20t,non precise"
+			en.display_values="non motorized,motorbike,4wd less than 3.5mt,light truck less than 10mt,heavy truck less than 20mt,truck + trailer greater than 20mt,unspecified" required="true" />
+		<label text=" " />	
+		<label text="== MARKETPLACE TYPE ==" fr.text="== TYPE DE PLACE DE MARCHES ==" en.text="== MARKETPLACE TYPE =="/>		
+		<check key="marketplace:covered" text="Covered marketplace" fr.text="Marche couvert" en.text="Covered marketplace" default="off" />
+		<check key="marketplace:open_air" text="Open air marketplace" fr.text="Marche en plein air" en.text="Open air marketplace" default="off" />
+		<check key="marketplace:alimentary" text="Alimentary marketplace" fr.text="Marche alimentaire" en.text="Alimentary marketplace" default="off" />
+		<check key="marketplace:specialized" text="Specialized marketplace" fr.text="Marche specialise" en.text="Specialized marketplace" default="off" />
+		<text key="marketplace:note" text="Precise if needed" fr.text="Preciser si besoin" en.text="Precise if needed" />
+		<label text=" " />		
+		<label text="== IF COVERED, MARKETPLACE MATERIAL ==" fr.text="== SI COUVERT, MATERIAUX DU MARCHE  =" en.text="== IF COVERED, MARKETPLACE MATERIAL =="/>		
+		<label text="Building base material" fr.text="Materiaux du Batiment" en.text="Building base material" />
+		<check key="building_base_material:reinforced_concrete" text="reinforced concrete" fr.text="beton arme" en.text="reinforced concrete" default="off" />
+		<check key="building_base_material:concrete" text="concrete" fr.text="dur" en.text="concrete" default="off" />
+		<check key="building_base_material:sheet_metal" text="sheet metal" fr.text="tole" en.text="sheet metal" default="off" />
+		<check key="building_base_material:wood" text="wood" fr.text="bois" en.text="wood" default="off" />
+		<check key="building_base_material:pvc" text="PVC" fr.text="PVC" en.text="PVC" default="off" />
+		<check key="building_base_material:plastic_sheeting" text="plastic sheeting, prelat" fr.text="bache plastique, prelat" en.text="plastic sheeting, prelat" default="off" />
+		<check key="building_base_material:canvas" text="canvas" fr.text="toile" en.text="canvas" default="off" />
+		<check key="building_base_material:unspecified" text="unspecified" fr.text="non precise" en.text="unspecified" default="off" />
+		<text key="building_base_material:other" text="Precise if other" fr.text="Preciser si autre" en.text="Precise if other" />
+		<label text=" " />		  
+ 		<label text="Building roof materials" fr.text="Materiaux du toit" en.text="Building roof materials" />
+		<check key="building_roof_material:tiles" text="tiles" fr.text="tuiles" en.text="tiles" default="off" />
+		<check key="building_roof_material:concrete" text="concrete" fr.text="beton" en.text="concrete" default="off" />
+		<check key="building_roof_material:stone" text="stone" fr.text="pierre" en.text="stone" default="off" />
+		<check key="building_roof_material:sheet_metal" text="sheet metal" fr.text="tole" en.text="sheet metal" default="off" />
+		<check key="building_roof_material:wood" text="wood" fr.text="bois" en.text="wood" default="off" />
+		<check key="building_roof_material:pvc" text="PVC" fr.text="PVC" en.text="PVC" default="off" />
+		<check key="building_roof_material:canvas" text="canvas" fr.text="toile" en.text="canvas" default="off" />
+		<check key="building_roof_material:plastic_sheeting" text="plastic sheeting, prelat" fr.text="bache plastique, prelat" en.text="plastic sheeting, prelat" default="off" />
+		<check key="building_roof_material:tent" text="tent" fr.text="tente" en.text="tent" default="off" />
+		<check key="building_roof_material:unspecified" text="unspecified" fr.text="non precise" en.text="unspecified" default="off" />
+		<text key="building_roof_material:other" text="Precise if other" fr.text="Preciser si autre" en.text="Precise if other" />
+ 		<label text=" " />		
+		<combo key="marketplace_status" text="Marketplace status" fr.text="Etat marche" en.text="Marketplace status"
+            values="good,medium,bad,unspecified"
+            display_values="good,medium,bad,unspecified"
+			fr.display_values="bon,moyen,mauvais,non precise"
+            en.display_values="good,medium,bad,unspecified"/>
+		<combo key="operational_status" text="Operational status" fr.text="Statut operationnel" en.text="Operational status" 
+			values="open,restricted,closed,unspecified" 
+			display_values="open,restricted,closed,unspecified"
+			fr.display_values="ouvert,restreint,ferme,non precise" 
+			en.display_values="open,restricted,closed,unspecified" required="true"/>
+		<combo key="operational_status_quality" text="Operational status quality" fr.text="Qualite de l'Information sur le statut operationnel" en.text="Operational status quality" 
+        	values="reported,confirmed,unspecified" 
+        	display_values="reported,confirmed,unspecified" 
+			fr.display_values="rapporte,confirme,non precise"
+			en.display_values="reported,confirmed,unspecified" required="true"/>
+		<label text=" " />
+		<label text="== TELECOM ==" fr.text="== TELECOMMUNICATIONS ==" en.text="== TELECOM =="/>	
+		<check key="telecom:land_line" text="land line" fr.text="telephone fixe" en.text="land line" default="off" />
+        <check key="telecom:internet" text="internet" fr.text="internet" en.text="internet" default="off" />
+        <check key="telecom:radio" text="radio" fr.text="poste de radio" en.text="radio" default="off" />
+		<label text=" " />
+		<label text="== CAPACITIES ==" fr.text="== CAPACITES ==" en.text="== CAPACITIES =="/>
+		<text key="marketplace:stands" text="Approximative number of stands" fr.text="Nombre approximatif de stands" en.text="Approximative number of stands" />		
+		<label text=" " />
+		<label text="OPERATOR" fr.text="OPERATEUR" en.text="OPERATOR"/>
+        <combo key="operator_type" text="Operator type" fr.text="Type d'operateur" en.text="Operator type" 
+            values="government,public_non_governmental,private_for_profit,private_non_profit,community,none,unspecified" 
+            display_values="government,public non governmental,private for profit,private non profit,community,none,unspecified"
+			fr.display_values="gouvernemental,public non gouvernemental,prive a but lucratif,prive sans but lucratif,communautaire,aucun,non precise"
+            en.display_values="government,public non governmental,private for profit,private non profit,community,none,unspecified" required="true"/>
+		<label text=" " />
+        <combo key="marketplace:authority" text="AUTHORITY" fr.text="HABILITATION" en.text="AUTHORITY" 
+            values="officially_managed,spontaneous_but_recognized,spontaneous_non_recognized,other,unspecified" 
+            display_values="officially managed,spontaneous but recognized,spontaneous non recognized,other,unspecified"
+			fr.display_values="administre officiellement,spontane reconnu par les autorites,spontane non reconnu par les autorites,autre,non precise"
+            en.display_values="officially managed,spontaneous but recognized,spontaneous non recognized,other,unspecified" required="true" />
+		<label text=" " />			
+		<label text="== OPENING DAYS AND HOURS ==" fr.text="== JOURS ET HEURES DE FONCTIONNEMENT ==" en.text="== OPENING DAYS AND HOURS =="/>
+		<check key="opening_hours:monday" text="Monday" fr.text="Lundi" en.text="Monday" />
+		<check key="opening_hours:tuesday" text="Tuesday" fr.text="Mardi" en.text="Tuesday" />
+		<check key="opening_hours:wednesday" text="Wednesday" fr.text="Mercredi" en.text="Wednesday" />
+		<check key="opening_hours:thursday" text="Thursday" fr.text="Jeudi" en.text="Thursday" />
+		<check key="opening_hours:friday" text="Friday" fr.text="Vendredi" en.text="Friday" />
+		<check key="opening_hours:saturday" text="Saturday" fr.text="Samedi" en.text="Saturday" />
+		<check key="opening_hours:sunday" text="Sunday" fr.text="Dimanche" en.text="Sunday" />
+		<label text=" " />
+		<check key="opening_hours:morning" text="Morning" fr.text="Matin" en.text="Morning" />		
+		<check key="opening_hours:afternoon" text="Afternoon" fr.text="Apres-midi" en.text="Afternoon" />		
+		<check key="opening_hours:night" text="Night" fr.text="Nuit" en.text="Night" />
+		<label text=" " />
+		<check key="opening_hours:unspecified" text="Unspecified" fr.text="Non precise" en.text="Unspecified" />		
+		<label text=" " />
+		<label text="== ATTENDANCE ==" fr.text="== FREQUENTATION ==" en.text="== ATTENDANCE =="/>			
+		<text key="employees:morning" text="Number of employees on the morning" fr.text="Nombre d'employes le matin" en.text="Number of employees on the morning" />
+		<text key="employees:afternoon" text="Number of employees on the afternoon" fr.text="Nombre d'employes l'apres-midi" en.text="Number of employees on the afternoon" />
+		<text key="employees:evening" text="Number of employees on the evening" fr.text="Nombre d'employes le soir" en.text="Number of employees on the evening" />
+		<text key="employees:night" text="Number of employees during the night" fr.text="Nombre d'employes la nuit" en.text="Number of employees during the night" />
+		<label text=" " />
+		<text key="public_adults:morning" text="Number of adult visitors on the morning" fr.text="Nombre de visiteurs adultes le matin" en.text="Number of adult visitors on the morning"/>
+		<text key="public_adults:afternoon" text="Number of adult visitors on the afternoon" fr.text="Nombre de visiteurs adultes l'apres-midi" en.text="Number of adult visitors on the afternoon"/>
+		<text key="public_adults:evening" text="Number of adult visitors on the evening" fr.text="Nombre de visiteurs adultes le soir" en.text="Number of adult visitors on the evening"/>
+		<text key="public_adults:night" text="Number of adult visitors during the night" fr.text="Nombre de visiteurs adultes la nuit" en.text="Number of adult visitors during the night"/>
+		<label text=" " />
+		<text key="public_under18:morning" text="Number of visitors under 18 on the morning" fr.text="Nombre de visiteurs enfants le matin" en.text="Number of visitors under 18 on the morning"/>
+		<text key="public_under18:afternoon" text="Number of visitors under 18 on the afternoon" fr.text="Nombre de visiteurs enfants l'apres-midi" en.text="Number of visitors under 18 on the afternoon"/>
+		<text key="public_under18:evening" text="Number of visitors under 18 on the evening" fr.text="Nombre de visiteurs enfants le soir" en.text="Number of visitors under 18 on the evening"/>
+		<text key="public_under18:night" text="Number of visitors under 18 during the night" fr.text="Nombre de visiteurs enfants la nuit" en.text="Number of visitors under 18 during the night"/>
+		<label text=" " />
+		<label text="== SOURCE ==" fr.text="== SOURCE ==" en.text="== SOURCE =="/>		
+       	<text key="geometry_source_name" text="Geometry source name" fr.text="Nom de la source geometrique" en.text="Geometry source name" />
+        <combo key="geometry_source_type" text="Geometry source type" fr.text="Type de la source geometrique" en.text="Geometry source type" 
+        	values="field_mission_gps_walking_paper,field_mission_gps,field_mission_walking_paper,satellite_imagery,maps,gis_dataset,unspecified"
+        	display_values="field mission with gps and walking paper,field mission with only gps,field mission with only walking paper,satellite imagery,maps,gis dataset,unspecified" 
+			fr.display_values="mission de terrain avec GPS et walking paper,mission de terrain avec GPS seul,mission de terrain avec walking paper seul,image satellite,carte,base de donnees georeferencee,non precise"
+        	en.display_values="field mission with gps and walking paper,field mission with only gps,field mission with only walking paper,satellite imagery,maps,gis dataset,unspecified" required="true"/>
+        <text key="geometry_source_date" text="Geometry source date (DD/MM/YYYY)" fr.text="Date de la source geometrique (JJ/MM/AAAA)" en.text="Geometry source date (DD/MM/YYYY)"/>
+        <text key="attribute_source_name" text="Attribute source name" fr.text="Nom de la source attributaire" en.text="Attribute source name" />
+        <combo key="attribute_source_type" text="Attribute source type" fr.text="Type de la source attributaire"  en.text="Attribute source type" 
+        	values="field_mission,report,unspecified"
+        	display_values="field mission,report,unspecified"
+			fr.display_values="mission de terrain,rapport,non precise"
+        	en.display_values="field mission,report,unspecified" required="true"/>
+        <text key="attribute_source_date" text="Attribute source date (DD/MM/YYYY)" fr.text="Date de la source attributaire (JJ/MM/AAAA)" en.text="Attribute source date (DD/MM/YYYY)" />
+		<label text=" " />
+        <text key="NOTE" text="NOTE" fr.text="NOTES" en.text="NOTE" />
+		<label text=" " />
+	</item>
+				<!--	Pharmacy -->	
+	<item name="Pharmacy" fr.name="Pharmacie" en.name="Pharmacy" icon="presets/pharmacy.png" type="node,closedway,relation">
+		<key key="IOM:project" value="DRR" />
+		<key key="amenity" value="pharmacy" />
+		<label text="== SURVEYOR INFORMATION ==" fr.text="== INFORMATION ENQUETEUR ==" en.text="== SURVEYOR INFORMATION =="/>
+		<text key="surveyor:name" text="Surveyor(s) Name" fr.text="Nom du ou des enquêteurs" en.text="Surveyor(s) Name"/>		
+		<text key="surveyor:email" text="Surveyor(s) Email" fr.text="Email du ou des enquêteurs" en.text="Surveyor(s) Email"/>		
+		<text key="surveyor:phone" text="Surveyor(s) phone number" fr.text="Telephone du ou des enquêteurs" en.text="Surveyor(s) phone number"/>		
+		<text key="surveyor:GPS" text="Surveyor(s) GPS ID number" fr.text="Numero de GPS du ou des enquêteurs" en.text="Surveyor(s) GPS ID number"/>		
+		<label text=" " />
+		<label text="== NAME OF THE PHARMACY ==" fr.text="== NOM DE LA PHARMACIE ==" en.text="== NAME OF THE PHARMACY =="/>
+		<text key="name" text="* Name" fr.text="* Nom" en.text="* Name"/>
+		<text key="name:en" text="Name English" fr.text="Nom en anglais" en.text="Name English"/>
+		<text key="name:fr" text="Name French" fr.text="Nom en francais" en.text="Name French"/>
+		<text key="name:kr" text="Name Kreyol" fr.text="Nom en creole" en.text="Name Kreyol"/>
+		<text key="registry_name" text="Registry Name" fr.text="Nom dans base de donnees" en.text="Registry Name"/>
+		<label text=" " />
+		<label text="== ID ==" en.text="== ID =="/>
+		<text key="id:uid" text="UID" fr.text="UID" en.text="UID"/>
+		<text key="id:uuid" text="UUID" fr.text="UUID" en.text="UUID"/>
+		<label text=" " />
+		<label text="== PICTURE ==" fr.text="== PHOTO ==" en.text="== PICTURE =="/>
+		<text key="photo_url" text="URL of Uploaded picture or picture album on FLICKR" fr.text="URL de la photo uploadee ou de l'album sur FLICKR " en.text="URL of Uploaded picture or picture album on FLICKR"/>
+		<label text=" " />
+		<label text="== ADDRESS DETAILS ==" fr.text="== ADRESSE DETAILS ==" en.text="== ADDRESS DETAILS =="/>
+		<text key="addr:city" text="* City Name" fr.text="* Nom de la ville" en.text="* City Name"/>
+		<text key="addr:ward" text="Ward" fr.text="District, zone ou quartier" en.text="Ward"/>
+		<text key="addr:street" text="* Street Name" fr.text="* Nom de la rue" en.text="* Street Name"/>
+		<text key="addr:housenumber" text="* Building number" fr.text="* Numero du batiment " en.text="* Building number"/>
+		<text key="addr:full" text="* Full Address" fr.text="* Adresse complete " en.text="* Full Address" />
+		<text key="place:area" text="Place Name" fr.text="Nom de la localité (zone)" en.text="Place Name"/>
+		<text key="place:area_alternate" text="Alternate Place Name" fr.text="Nom d'usage de la localité (zone)" en.text="Alternate Place Name"/>
+		<text key="place:description" text="Place Description" fr.text="Description de la localité (zone)" en.text="Place Description"/>
+		<text key="place:nearestlandmark" text="Place nearest Landmark" fr.text="Point remarquable le plus proche" en.text="Place nearest Landmark"/>
+		<label text=" " />
+		<label text="== ACCESSIBILITY ==" fr.text="== ACCESSIBILITE ==" en.text="== ACCESSIBILITY =="/>
+		<combo key="prac" text="Practicability" fr.text="Praticabilite" en.text="Practicability"
+			values="non_motorized,motorbike,4wd_less_than_3.5mt,light_truck_less_than_10mt,heavy_truck_less_than_20mt,truck_+_trailer_greater_than_20mt,unspecified" 
+			display_values="non motorized,motorbike,4wd less than 3.5mt,light truck less than 10mt,heavy truck less than 20mt,truck + trailer greater than 20mt,unspecified"
+			fr.display_values="pieton,moto,4x4 de moins de 3.5t,camion de moins de 10t,camion de moins de 20t,camion de plus de 20t,non precise"
+			en.display_values="non motorized,motorbike,4wd less than 3.5mt,light truck less than 10mt,heavy truck less than 20mt,truck + trailer greater than 20mt,unspecified" required="true" />
+		<label text=" " />
+		<label text="== BUILDING ==" fr.text="== BATIMENT =" en.text="== BUILDING =="/>		
+		<label text="Building base material" fr.text="Materiaux du Batiment" en.text="Building base material" />
+		<check key="building_base_material:reinforced_concrete" text="reinforced concrete" fr.text="beton arme" en.text="reinforced concrete" default="off" />
+		<check key="building_base_material:concrete" text="concrete" fr.text="dur" en.text="concrete" default="off" />
+		<check key="building_base_material:sheet_metal" text="sheet metal" fr.text="tole" en.text="sheet metal" default="off" />
+		<check key="building_base_material:wood" text="wood" fr.text="bois" en.text="wood" default="off" />
+		<check key="building_base_material:pvc" text="PVC" fr.text="PVC" en.text="PVC" default="off" />
+		<check key="building_base_material:canvas" text="canvas" fr.text="toile" en.text="canvas" default="off" />
+		<check key="building_base_material:plastic_sheeting" text="plastic sheeting, prelat" fr.text="bache plastique, prelat" en.text="plastic sheeting, prelat" default="off" />
+		<check key="building_base_material:tent" text="tent" fr.text="tente" en.text="tent" default="off" />
+		<check key="building_base_material:unspecified" text="unspecified" fr.text="non precise" en.text="unspecified" default="off" />
+		<label text=" " />		  
+ 		<label text="Building roof materials" fr.text="Materiaux du toit" en.text="Building roof materials" />
+		<check key="building_roof_material:tiles" text="tiles" fr.text="tuiles" en.text="tiles" default="off" />
+		<check key="building_roof_material:concrete" text="concrete" fr.text="beton" en.text="concrete" default="off" />
+		<check key="building_roof_material:stone" text="stone" fr.text="pierre" en.text="stone" default="off" />
+		<check key="building_roof_material:sheet_metal" text="sheet metal" fr.text="tole" en.text="sheet metal" default="off" />
+		<check key="building_roof_material:wood" text="wood" fr.text="bois" en.text="wood" default="off" />
+		<check key="building_roof_material:pvc" text="PVC" fr.text="PVC" en.text="PVC" default="off" />
+		<check key="building_roof_material:canvas" text="canvas" fr.text="toile" en.text="canvas" default="off" />
+		<check key="building_roof_material:plastic_sheeting" text="plastic sheeting, prelat" fr.text="bache plastique, prelat" en.text="plastic sheeting, prelat" default="off" />
+		<check key="building_roof_material:tent" text="tent" fr.text="tente" en.text="tent" default="off" />
+		<check key="building_roof_material:unspecified" text="unspecified" fr.text="non precise" en.text="unspecified" default="off" />
+ 		<label text=" " />		
+		<combo key="building_status" text="* Building status" fr.text="* Etat Batiment" en.text="* Building status"
+            values="good,medium,bad,unspecified"
+            display_values="good,medium,bad,unspecified"
+			fr.display_values="bon,moyen,mauvais,non precise"
+            en.display_values="good,medium,bad,unspecified"/>
+		<combo key="operational_status" text="Operational status" fr.text="Statut operationnel" en.text="Operational status" 
+			values="open,restricted,closed,unspecified" 
+			display_values="open,restricted,closed,unspecified"
+			fr.display_values="ouvert,restreint,ferme,non precise" 
+			en.display_values="open,restricted,closed,unspecified" required="true"/>
+		<combo key="operational_status_quality" text="Operational status quality" fr.text="Qualite de l'Information sur le statut operationnel" en.text="Operational status quality" 
+        	values="reported,confirmed,unspecified" 
+        	display_values="reported,confirmed,unspecified" 
+			fr.display_values="rapporte,confirme,non precise"
+			en.display_values="reported,confirmed,unspecified" required="true"/>
+		<label text=" " />
+		<label text="== CAPACITIES ==" fr.text="== CAPACITES ==" en.text="== CAPACITIES =="/>				
+		<text key="capacity:seats" text="Seated capacity max" fr.text="Capacite maximum de places assises" en.text="Seated capacity max"/>
+		<text key="capacity:standing" text="Standing capacity max" fr.text="Capacite maximum de places debout" en.text="Standing capacity max"/>
+		<text key="capacity" text="Capacity max" fr.text="Capacite en nombre maxi de places" en.text="Capacity max"/>
+		<label text=" " />
+		<label text="== TELECOM ==" fr.text="== TELECOMMUNICATIONS ==" en.text="== TELECOM =="/>	
+		<check key="telecom:land_line" text="land line" fr.text="Telephone fixe" en.text="land line" default="off" />
+        <check key="telecom:internet" text="internet" fr.text="internet" en.text="internet" default="off" />
+        <check key="telecom:radio" text="radio" fr.text="poste de radio" en.text="radio" default="off" />
+		<label text=" " />
+		<label text="== OPENING DAYS AND HOURS ==" fr.text="== JOURS ET HEURES DE FONCTIONNEMENT ==" en.text="== OPENING DAYS AND HOURS =="/>
+		<check key="opening_hours:monday" text="Monday" fr.text="Lundi" en.text="Monday" default="off" />
+		<check key="opening_hours:tuesday" text="Tuesday" fr.text="Mardi" en.text="Tuesday" default="off" />
+		<check key="opening_hours:wednesday" text="Wednesday" fr.text="Mercredi" en.text="Wednesday" default="off" />
+		<check key="opening_hours:thursday" text="Thursday" fr.text="Jeudi" en.text="Thursday" default="off" />
+		<check key="opening_hours:friday" text="Friday" fr.text="Vendredi" en.text="Friday" default="off" />
+		<check key="opening_hours:saturday" text="Saturday" fr.text="Samedi" en.text="Saturday" default="off" />
+		<check key="opening_hours:sunday" text="Sunday" fr.text="Dimanche" en.text="Sunday" default="off" />
+		<label text=" " />
+		<check key="opening_hours:morning" text="Morning" fr.text="Matin" en.text="Morning" default="off" />		
+		<check key="opening_hours:afternoon" text="Afternoon" fr.text="Apres-midi" en.text="Afternoon" default="off" />		
+		<check key="opening_hours:night" text="Night" fr.text="Nuit" en.text="Night" default="off" />
+		<label text=" " />
+		<check key="opening_hours:unspecified" text="Unspecified" fr.text="Non precise" en.text="Unspecified" default="off" />		
+		<label text=" " />
+		<label text="== ATTENDANCE ==" fr.text="== FREQUENTATION ==" en.text="== ATTENDANCE =="/>			
+		<text key="employees:morning" text="Number of employees on the morning" fr.text="Nombre d'employes le matin" en.text="Number of employees on the morning" />
+		<text key="employees:afternoon" text="Number of employees on the afternoon" fr.text="Nombre d'employes l'apres-midi" en.text="Number of employees on the afternoon" />
+		<text key="employees:evening" text="Number of employees on the evening" fr.text="Nombre d'employes le soir" en.text="Number of employees on the evening" />
+		<text key="employees:night" text="Number of employees during the night" fr.text="Nombre d'employes la nuit" en.text="Number of employees during the night" />
+		<label text=" " />
+		<text key="public_adults:morning" text="Number of adult visitors on the morning" fr.text="Nombre de visiteurs adultes le matin" en.text="Number of adult visitors on the morning"/>
+		<text key="public_adults:afternoon" text="Number of adult visitors on the afternoon" fr.text="Nombre de visiteurs adultes l'apres-midi" en.text="Number of adult visitors on the afternoon"/>
+		<text key="public_adults:evening" text="Number of adult visitors on the evening" fr.text="Nombre de visiteurs adultes le soir" en.text="Number of adult visitors on the evening"/>
+		<text key="public_adults:evening" text="Number of adult visitors on the evening" fr.text="Nombre de visiteurs adultes le soir" en.text="Number of adult visitors on the evening"/>
+		<text key="public_adults:night" text="Number of adult visitors during the night" fr.text="Nombre de visiteurs adultes la nuit" en.text="Number of adult visitors during the night"/>
+		<label text=" " />
+		<text key="public_under18:morning" text="Number of visitors under 18 on the morning" fr.text="Nombre de visiteurs enfants le matin" en.text="Number of visitors under 18 on the morning"/>
+		<text key="public_under18:afternoon" text="Number of visitors under 18 on the afternoon" fr.text="Nombre de visiteurs enfants l'apres-midi" en.text="Number of visitors under 18 on the afternoon"/>
+		<text key="public_under18:evening" text="Number of visitors under 18 on the evening" fr.text="Nombre de visiteurs enfants le soir" en.text="Number of visitors under 18 on the evening"/>
+		<text key="public_under18:night" text="Number of visitors under 18 during the night" fr.text="Nombre de visiteurs enfants la nuit" en.text="Number of visitors under 18 during the night"/>
+		<label text=" " />
+		<label text="== SOURCE ==" fr.text="== SOURCE ==" en.text="== SOURCE =="/>		
+       	<text key="geometry_source_name" text="Geometry source name" fr.text="Nom de la source geometrique" en.text="Geometry source name" />
+        <combo key="geometry_source_type" text="Geometry source type" fr.text="Type de la source geometrique" en.text="Geometry source type" 
+        	values="field_mission_gps_walking_paper,field_mission_gps,field_mission_walking_paper,satellite_imagery,maps,gis_dataset,unspecified"
+        	display_values="field mission with gps and walking paper,field mission with only gps,field mission with only walking paper,satellite imagery,maps,gis dataset,unspecified" 
+			fr.display_values="mission de terrain avec GPS et walking paper,mission de terrain avec GPS seul,mission de terrain avec walking paper seul,image satellite,carte,base de donnees georeferencee,non precise"
+        	en.display_values="field mission with gps and walking paper,field mission with only gps,field mission with only walking paper,satellite imagery,maps,gis dataset,unspecified" required="true"/>
+        <text key="geometry_source_date" text="Geometry source date (DD/MM/YYYY)" fr.text="Date de la source geometrique (JJ/MM/AAAA)" en.text="Geometry source date (DD/MM/YYYY)"/>
+        <text key="attribute_source_name" text="Attribute source name" fr.text="Nom de la source attributaire" en.text="Attribute source name" />
+        <combo key="attribute_source_type" text="Attribute source type" fr.text="Type de la source attributaire"  en.text="Attribute source type" 
+        	values="field_mission,report,unspecified"
+        	display_values="field mission,report,unspecified"
+			fr.display_values="mission de terrain,rapport,non precise"
+        	en.display_values="field mission,report,unspecified" required="true"/>
+        <text key="attribute_source_date" text="Attribute source date (DD/MM/YYYY)" fr.text="Date de la source attributaire (JJ/MM/AAAA)" en.text="Attribute source date (DD/MM/YYYY)" />
+		<label text=" " />
+        <text key="NOTE" text="NOTE" fr.text="NOTES" en.text="NOTE" />
+		<label text=" " />
+	</item>
+		        <!-- file : v4.21\Objets Humanitaires\Eau et Assainissement\j_Toilettes.xml -->
+    <item name="Toilets and latrines" fr.name="Toilettes et latrines" en.name="Toilets and latrines" type="node,closedway,relation" icon="presets/toilet.png">
+        <key key="amenity" value="toilets"/>
+		<label text="== SURVEYOR INFORMATION ==" fr.text="== INFORMATION ENQUETEUR ==" en.text="== SURVEYOR INFORMATION =="/>
+		<text key="surveyor:name" text="Surveyor(s) Name" fr.text="Nom du ou des enquêteurs" en.text="Surveyor(s) Name"/>		
+		<text key="surveyor:email" text="Surveyor(s) Email" fr.text="Email du ou des enquêteurs" en.text="Surveyor(s) Email"/>		
+		<text key="surveyor:phone" text="Surveyor(s) phone number" fr.text="Telephone du ou des enquêteurs" en.text="Surveyor(s) phone number"/>		
+		<text key="surveyor:GPS" text="Surveyor(s) GPS ID number" fr.text="Numero de GPS du ou des enquêteurs" en.text="Surveyor(s) GPS ID number"/>		
+		<label text=" " />	
+		<label text="== PICTURE ==" fr.text="== PHOTO ==" en.text="== PICTURE =="/>
+		<text key="photo_url" text="URL of Uploaded picture or picture album on FLICKR" fr.text="URL de la photo uploadee ou de l'album sur FLICKR " en.text="URL of Uploaded picture or picture album on FLICKR"/>
+		<label text=" " />
+        <label text="== TOILETS ==" fr.text="== TOILETTES ==" en.text="== TOILETS ==" />
+		<label text=" " />		
+		<label text="TYPE" fr.text="TYPE" en.text="TYPE"/>		  
+		<check key="amenity" text="Toilets" fr.text="Toilettes" en.text="Toilets" default="off" value_on="toilets" />
+		<check key="pitlatrine" text="Pit latrine" fr.text="Latrines" en.text="Pit latrine" default="off"  />
+		<label text=" " />
+		<label text="ACCESS" fr.text="ACCES" en.text="ACCESS"/>		 
+        <combo key="gender_access" text="Gender access" fr.text="Genre" en.text="Gender access"
+			values="male,female,all" 
+			display_values="male,female,all"
+			fr.display_values="homme,femme,mixte"
+			en.display_values="male,female,all"/>
+          <combo key="disability_access" text="Disability access" fr.text="Accessibilite aux handicapes" en.text="Disability access" 
+			values="yes,no,unspecified" 
+			display_values="yes,no,unspecified"
+			fr.display_values="oui,non,non precise"
+			en.display_values="yes,no,unspecified"/>
+		  <label text=" " />
+		<combo key="toilets:access" text="USING" fr.text="USAGES" en.text="USING" 
+			values="community,multifamilies,family,unspecified" 
+			display_values="community,multifamilies,family,unspecified"
+			fr.display_values="communautaire,multifamilial,familial,non precise"
+			en.display_values="community,multifamilies,family,unspecified"/>
+		<combo key="toilets:durability" text="DURABILITY" fr.text="DURABILITE" en.text="DURABILITY" 
+			values="emergency,durable" 
+			display_values="emergency,durable"
+			fr.display_values="urgence,durable"
+			en.display_values="emergency,durable"/>			
+		<combo key="toilets:technology" text="TECHNOLOGY" fr.text="TECHNIQUE" en.text="TECHNOLOGY" 
+			values="flush,chemical,organical,ventilated,unspecified" 
+			display_values="flush,chemical,organical,ventilated,unspecified"
+			fr.display_values="humide,chimique,organique,ventile,non precise"
+			en.display_values="flush,chemical,organical,ventilated,unspecified"/>
+ 		<label text=" " />
+		<combo key="toilets:tank" text="TANK TYPE" fr.text="TYPE DE FOSSE" en.text="TANK TYPE" 
+			values="simple_hole,removable_tank,septic_tank,unspecified" 
+			display_values="simple hole,removable tank,septic tank,unspecified"
+			fr.display_values="trou a fond perdu,reservoir enlevable,fosse septique,non precise"
+			en.display_values="simple hole,removable tank,septic tank,unspecified"/>
+		<combo key="toilets:basement" text="BASEMENT" fr.text="DALLE" en.text="BASEMENT" 
+			values="concrete,wood,earth,unspecified" 
+			display_values="concrete,wood,earth,unspecified"
+			fr.display_values="beton,bois,aucune (terre),non precise"
+			en.display_values="concrete,wood,earth,unspecified"/>
+ 		<label text=" " />
+		<label text="OPERATIONAL STATUS" fr.text="STATUT OPERATIONNEL" en.text="OPERATIONAL STATUS"/>			
+        <combo key="operational_status" text="Operational status" fr.text="Statut operationnel" en.text="Operational status" 
+			values="open,restricted,closed,unspecified" 
+			display_values="open,restricted,closed,unspecified"
+			fr.display_values="ouvert,restreint,ferme,non precise" 
+			en.display_values="open,restricted,closed,unspecified" required="true"/>
+        <combo key="operational_status_quality" text="Operational status quality" fr.text="Qualite de l'Information sur le statut operationnel" en.text="Operational status quality" 
+        	values="reported,confirmed,unspecified" 
+        	display_values="reported,confirmed,unspecified" 
+			fr.display_values="rapporte,confirme,non precise"
+			en.display_values="reported,confirmed,unspecified" required="true"/>			
+	    <combo key="status" text="Status" fr.text="Etat" en.text="Status"
+            values="good,medium,bad"
+            display_values="good,medium,bad"
+			fr.display_values="bon,moyen,mauvais"
+            en.display_values="good,medium,bad"/>
+ 		<label text=" " />
+		<combo key="toilets:emptying" text="EMPTYING" fr.text="VIDANGE" en.text="EMPTYING"
+            values="mechanical,manual,none"
+            display_values="mechanical,manual,none"
+			fr.display_values="mecanique,manuelle,aucune"
+            en.display_values="mechanical,manual,none"/>		
+ 		<label text=" " />
+		<combo key="toilets:cleaning" text="CLEANING" fr.text="NETTOYAGE" en.text="CLEANING"
+            values="person_in_charge,no_person_in_charge,unspecified"
+            display_values="person in charge,no person in charge,unspecified"
+			fr.display_values="reponsable existe,pas de responsable,non precise"
+            en.display_values="person in charge,no person in charge,unspecified"/>
+ 		<label text=" " />
+		<label text="OPERATOR" fr.text="OPERATEUR" en.text="OPERATOR"/>
+        <combo key="operator_type" text="Operator type" fr.text="Type d'operateur" en.text="Operator type" 
+            values="private,public,humanitarian,unspecified" 
+            display_values="private,public,humanitarian,unspecified"
+			fr.display_values="prive,public,humanitaire,non precise"
+            en.display_values="private,public,humanitarian,unspecified" required="true"/>
+		<text key="operator" text="Operator name" fr.text="Nom de l'operateur" en.text="Operator name" />
+		<text key="operator_id" text="Operator ID" fr.text="Identifiant d'operateur" en.text="Operator ID"/>
+ 		<label text=" " />
+        <label text="== SOURCE ==" fr.text="== SOURCE ==" en.text="== SOURCE =="/>
+        <text key="geometry_source_name" text="Geometry source name" fr.text="Nom de la source geometrique" en.text="Geometry source name" />
+        <combo key="geometry_source_type" text="Geometry source type" fr.text="Type de la source geometrique" en.text="Geometry source type" 
+        	values="field_mission_gps_walking_paper,field_mission_gps,field_mission_walking_paper,satellite_imagery,maps,gis_dataset,unspecified"
+        	display_values="field mission with gps and walking paper,field mission with only gps,field mission with only walking paper,satellite imagery,maps,gis dataset,unspecified" 
+			fr.display_values="mission de terrain avec GPS et walking paper,mission de terrain avec GPS seul,mission de terrain avec walking paper seul,image satellite,carte,base de donnees georeferencee,non precise"
+        	en.display_values="field mission with gps and walking paper,field mission with only gps,field mission with only walking paper,satellite imagery,maps,gis dataset,unspecified" required="true"/>
+        <text key="geometry_source_date" text="Geometry source date (DD/MM/YYYY)" fr.text="Date de la source geometrique (JJ/MM/AAAA)" en.text="Geometry source date (DD/MM/YYYY)"/>
+        <text key="attribute_source_name" text="Attribute source name" fr.text="Nom de la source attributaire" en.text="Attribute source name" />
+        <combo key="attribute_source_type" text="Attribute source type" fr.text="Type de la source attributaire"  en.text="Attribute source type" 
+        	values="field_mission,report,unspecified"
+        	display_values="field mission,report,unspecified"
+			fr.display_values="mission de terrain,rapport,non precise"
+        	en.display_values="field mission,report,unspecified" required="true"/>
+        <text key="attribute_source_date" text="Attribute source date (DD/MM/YYYY)" fr.text="Date de la source attributaire (JJ/MM/AAAA)" en.text="Attribute source date (DD/MM/YYYY)" />
+		<label text=" " />
+        <text key="NOTE" text="NOTE" fr.text="NOTES" en.text="NOTE" />
+		<label text=" " />
+	</item>
+        <!-- end file : v4.21\Objets Humanitaires\Eau et Assainissement\j_Toilettes.xml -->
+		
+	<item name="Watering place" fr.name="Points d'eau" en.name="Watering place" type="node,relation" >
+		<label text="== SURVEYOR INFORMATION ==" fr.text="== INFORMATION ENQUETEUR ==" en.text="== SURVEYOR INFORMATION =="/>
+		<text key="surveyor:name" text="Surveyor(s) Name" fr.text="Nom du ou des enquêteurs" en.text="Surveyor(s) Name"/>		
+		<text key="surveyor:email" text="Surveyor(s) Email" fr.text="Email du ou des enquêteurs" en.text="Surveyor(s) Email"/>		
+		<text key="surveyor:phone" text="Surveyor(s) phone number" fr.text="Telephone du ou des enquêteurs" en.text="Surveyor(s) phone number"/>		
+		<text key="surveyor:GPS" text="Surveyor(s) GPS ID number" fr.text="Numero de GPS du ou des enquêteurs" en.text="Surveyor(s) GPS ID number"/>		
+		<label text=" " />	
+		<label text="== PICTURE ==" fr.text="== PHOTO ==" en.text="== PICTURE =="/>
+		<text key="photo_url" text="URL of Uploaded picture or picture album on FLICKR" fr.text="URL de la photo uploadee ou de l'album sur FLICKR " en.text="URL of Uploaded picture or picture album on FLICKR"/>
+		<label text=" " />
+        <label text="== WATERING PLACE ==" fr.text="== POINTS D'EAU ==" en.text="== WATERING PLACE ==" />
+		<label text=" " />		
+		<label text="TYPE" fr.text="TYPE" en.text="TYPE"/>		  
+		<check key="natural" text="Spring" fr.text="Source" en.text="Spring" default="off" value_on="spring" />
+		<check key="man_made" text="Well" fr.text="Puits" en.text="Well" default="off" value_on="well" />
+		<check key="borehole" text="Borehole" fr.text="Forage (borehole)" en.text="Borehole" default="off"  />
+		<check key="bladder" text="Bladder" fr.text="Bladder" en.text="Bladder" default="off"  />
+		<check key="tank" text="Tank" fr.text="Tank" en.text="Tank" default="off"  />
+		<check key="tap" text="Tap" fr.text="Robinet" en.text="Tap" default="off"  />
+		<label text=" " />
+		<combo key="water_supply" text="Water supply" fr.text="Alimentation" en.text="Water supply"
+        	values="running_water,pump,water_trucking,unspecified"
+        	display_values="running water,pump,water trucking,unspecified"
+			fr.display_values="eau courante,pompe,camion,non precise"
+        	en.display_values="running water,pump,water trucking,unspecified" />
+		<label text=" " />
+		<combo key="drinking_water" text="Drinking water" fr.text="Eau courante" en.text="Drinking water"
+        	values="yes,no,unspecified"
+        	display_values="yes,no,unspecified"
+			fr.display_values="oui,non,non precise"
+        	en.display_values="yes,no,unspecified" />	
+		<label text=" " />
+		<combo key="water_purification" text="Water purification" fr.text="Potabilisation" en.text="Water purification"
+        	values="chlorine,reverse_osmosis,aquatabs,none,unspecified"
+        	display_values="chlorine,reverse osmosis,aquatabs,none,unspecified"
+			fr.display_values="chlore,osmose inverse,aquatabs,aucune,non precise"
+        	en.display_values="chlorine,reverse osmosis,aquatabs,none,unspecified" />
+		<label text=" " />
+		<combo key="water_place:access" text="USING" fr.text="USAGES" en.text="USING" 
+			values="community,multifamilies,family,unspecified" 
+			display_values="community,multifamilies,family,unspecified"
+			fr.display_values="communautaire,multifamilial,familial,non precise"
+			en.display_values="community,multifamilies,family,unspecified"/>
+		<label text=" " />
+		<combo key="water_place:durability" text="DURABILITY" fr.text="DURABILITE" en.text="DURABILITY" 
+			values="emergency,durable" 
+			display_values="emergency,durable"
+			fr.display_values="urgence,durable"
+			en.display_values="emergency,durable"/>
+ 		<label text=" " />
+		<label text="OPERATIONAL STATUS" fr.text="STATUT OPERATIONNEL" en.text="OPERATIONAL STATUS"/>			
+        <combo key="operational_status" text="Operational status" fr.text="Statut operationnel" en.text="Operational status" 
+			values="open,restricted,closed,unspecified" 
+			display_values="open,restricted,closed,unspecified"
+			fr.display_values="ouvert,restreint,ferme,non precise" 
+			en.display_values="open,restricted,closed,unspecified" required="true"/>
+        <combo key="operational_status_quality" text="Operational status quality" fr.text="Qualite de l'Information sur le statut operationnel" en.text="Operational status quality" 
+        	values="reported,confirmed,unspecified" 
+        	display_values="reported,confirmed,unspecified" 
+			fr.display_values="rapporte,confirme,non precise"
+			en.display_values="reported,confirmed,unspecified" required="true"/>			
+	    <combo key="status" text="Status" fr.text="Etat" en.text="Status"
+            values="good,medium,bad"
+            display_values="good,medium,bad"
+			fr.display_values="bon,moyen,mauvais"
+            en.display_values="good,medium,bad"/>
+ 		<label text=" " />
+		<combo key="water_place:cleaning" text="CLEANING" fr.text="NETTOYAGE" en.text="CLEANING"
+            values="person_in_charge,no_person_in_charge,unspecified"
+            display_values="person in charge,no person in charge,unspecified"
+			fr.display_values="reponsable existe,pas de responsable,non precise"
+            en.display_values="person in charge,no person in charge,unspecified"/>
+ 		<label text=" " />
+		<label text="OPERATOR" fr.text="OPERATEUR" en.text="OPERATOR"/>
+        <combo key="operator_type" text="Operator type" fr.text="Type d'operateur" en.text="Operator type" 
+            values="private,public,humanitarian,unspecified" 
+            display_values="private,public,humanitarian,unspecified"
+			fr.display_values="prive,public,humanitaire,non precise"
+            en.display_values="private,public,humanitarian,unspecified" required="true"/>
+		<text key="operator" text="Operator name" fr.text="Nom de l'operateur" en.text="Operator name" />
+		<text key="operator_id" text="Operator ID" fr.text="Identifiant d'operateur" en.text="Operator ID"/>
+ 		<label text=" " />
+        <label text="== SOURCE ==" fr.text="== SOURCE ==" en.text="== SOURCE =="/>
+        <text key="geometry_source_name" text="Geometry source name" fr.text="Nom de la source geometrique" en.text="Geometry source name" />
+        <combo key="geometry_source_type" text="Geometry source type" fr.text="Type de la source geometrique" en.text="Geometry source type" 
+        	values="field_mission_gps_walking_paper,field_mission_gps,field_mission_walking_paper,satellite_imagery,maps,gis_dataset,unspecified"
+        	display_values="field mission with gps and walking paper,field mission with only gps,field mission with only walking paper,satellite imagery,maps,gis dataset,unspecified" 
+			fr.display_values="mission de terrain avec GPS et walking paper,mission de terrain avec GPS seul,mission de terrain avec walking paper seul,image satellite,carte,base de donnees georeferencee,non precise"
+        	en.display_values="field mission with gps and walking paper,field mission with only gps,field mission with only walking paper,satellite imagery,maps,gis dataset,unspecified" required="true"/>
+        <text key="geometry_source_date" text="Geometry source date (DD/MM/YYYY)" fr.text="Date de la source geometrique (JJ/MM/AAAA)" en.text="Geometry source date (DD/MM/YYYY)"/>
+        <text key="attribute_source_name" text="Attribute source name" fr.text="Nom de la source attributaire" en.text="Attribute source name" />
+        <combo key="attribute_source_type" text="Attribute source type" fr.text="Type de la source attributaire"  en.text="Attribute source type" 
+        	values="field_mission,report,unspecified"
+        	display_values="field mission,report,unspecified"
+			fr.display_values="mission de terrain,rapport,non precise"
+        	en.display_values="field mission,report,unspecified" required="true"/>
+        <text key="attribute_source_date" text="Attribute source date (DD/MM/YYYY)" fr.text="Date de la source attributaire (JJ/MM/AAAA)" en.text="Attribute source date (DD/MM/YYYY)" />
+		<label text=" " />
+        <text key="NOTE" text="NOTE" fr.text="NOTES" en.text="NOTE" />
+		<label text=" " />	
+	</item>	
+	<item name="Lanfill" fr.name="Lieu de decharge" en.name="Landfill" type="node,closedway,relation" >
+		<key key="IOM:project" value="DRR" />
+		<key key="landuse" value="landfill" />
+		<label text="== LANDFILL ==" fr.text="== LIEU DE DECHARGE ==" en.text="== LANDFILL =="/>
+		<label text=" " />
+		<label text="SURVEYOR INFORMATION" fr.text="INFORMATION ENQUETEUR" en.text="SURVEYOR INFORMATION"/>
+		<text key="surveyor:name" text="Surveyor(s) Name" fr.text="Nom du ou des enquêteurs" en.text="Surveyor(s) Name"/>		
+		<text key="surveyor:email" text="Surveyor(s) Email" fr.text="Email du ou des enquêteurs" en.text="Surveyor(s) Email"/>		
+		<text key="surveyor:phone" text="Surveyor(s) phone number" fr.text="Telephone du ou des enquêteurs" en.text="Surveyor(s) phone number"/>		
+		<text key="surveyor:GPS" text="Surveyor(s) GPS ID number" fr.text="Numero de GPS du ou des enquêteurs" en.text="Surveyor(s) GPS ID number"/>		
+		<label text=" " />
+		<label text="NAME OF THE LANDFILL" fr.text="NOM DE LA DECHARGE" en.text="NAME OF THE LANDFILL"/>
+		<text key="name" text="* Name" fr.text="* Nom" en.text="* Name"/>
+		<text key="name:en" text="Name English" fr.text="Nom en anglais" en.text="Name English"/>
+		<text key="name:fr" text="Name French" fr.text="Nom en francais" en.text="Name French"/>
+		<text key="name:kr" text="Name Kreyol" fr.text="Nom en creole" en.text="Name Kreyol"/>
+		<text key="registry_name" text="Registry Name" fr.text="Nom dans base de donnees" en.text="Registry Name"/>
+		<label text=" " />
+		<label text="ID" en.text="ID"/>
+		<text key="id:uid" text="UID" fr.text="UID" en.text="UID"/>
+		<text key="id:uuid" text="UUID" fr.text="UUID" en.text="UUID"/>
+		<label text=" " />
+		<label text="PICTURE" fr.text="PHOTO" en.text="PICTURE"/>
+		<text key="photo_url" text="URL of Uploaded picture or picture album on FLICKR" fr.text="URL de la photo uploadee ou de l'album sur FLICKR " en.text="URL of Uploaded picture or picture album on FLICKR"/>
+		<label text=" " />
+		<label text="ADDRESS DETAILS" fr.text="ADRESSE DETAILS" en.text="ADDRESS DETAILS"/>
+		<text key="addr:city" text="* City Name" fr.text="* Nom de la ville" en.text="* City Name"/>
+		<text key="addr:ward" text="Ward" fr.text="District, zone ou quartier" en.text="Ward"/>
+		<text key="addr:street" text="* Street Name" fr.text="* Nom de la rue" en.text="* Street Name"/>
+		<text key="addr:housenumber" text="* Building number" fr.text="* Numero du batiment " en.text="* Building number"/>
+		<text key="addr:full" text="* Full Address" fr.text="* Adresse complete " en.text="* Full Address" />
+ 		<text key="place:area" text="Place Name" fr.text="Nom de la localité (zone)" en.text="Place Name"/>
+		<text key="place:area_alternate" text="Alternate Place Name" fr.text="Nom d'usage de la localité (zone)" en.text="Alternate Place Name"/>
+		<text key="place:description" text="Place Description" fr.text="Description de la localité (zone)" en.text="Place Description"/>
+		<text key="place:nearestlandmark" text="Place nearest Landmark" fr.text="Point remarquable le plus proche" en.text="Place nearest Landmark"/>
+		<label text=" " />
+		<label text="ACCESSIBILITY" fr.text="ACCESSIBILITE" en.text="ACCESSIBILITY"/>
+		<combo key="prac" text="Practicability" fr.text="Praticabilite" en.text="Practicability"
+			values="non_motorized,motorbike,4wd_less_than_3.5mt,light_truck_less_than_10mt,heavy_truck_less_than_20mt,truck_+_trailer_greater_than_20mt,unspecified" 
+			display_values="non motorized,motorbike,4wd less than 3.5mt,light truck less than 10mt,heavy truck less than 20mt,truck + trailer greater than 20mt,unspecified"
+			fr.display_values="pieton,moto,4x4 de moins de 3.5t,camion de moins de 10t,camion de moins de 20t,camion de plus de 20t,non precise"
+			en.display_values="non motorized,motorbike,4wd less than 3.5mt,light truck less than 10mt,heavy truck less than 20mt,truck + trailer greater than 20mt,unspecified" required="true" />
+		<label text=" " />
+		<label text="OPERATOR" fr.text="OPERATEUR" en.text="OPERATOR"/>
+        <combo key="operator_type" text="Operator type" fr.text="Type d'operateur" en.text="Operator type" 
+            values="government,public_non_governmental,private_for_profit,private_non_profit,community,none,unspecified" 
+            display_values="government,public non governmental,private for profit,private non profit,community,none,unspecified"
+			fr.display_values="gouvernemental,public non gouvernemental,prive a but lucratif,prive sans but lucratif,communautaire,aucun,non precise"
+            en.display_values="government,public non governmental,private for profit,private non profit,community,none,unspecified" required="true"/>
+		<text key="operator" text="Operator name" fr.text="Nom de l'operateur" en.text="Operator name" />
+		<text key="operator_id" text="Operator ID" fr.text="Identifiant d'operateur" en.text="Operator ID"/>
+ 		<label text=" " />		
+        <combo key="landfill_authority" text="AUTHORITY" fr.text="HABILITATION" en.text="AUTHORITY" 
+            values="officially_managed,spontaneous_but_recognized,spontaneous_non_recognized,other,unspecified" 
+            display_values="officially managed,spontaneous but recognized,spontaneous non recognized,other,unspecified"
+			fr.display_values="administre officiellement,spontane reconnu par les autorites,spontane non reconnu par les autorites,autre,non precise"
+            en.display_values="officially managed,spontaneous but recognized,spontaneous non recognized,other,unspecified" required="true" />		
+		<text key="landfill_authority_other" text="Precise if other or needed" fr.text="Preciser si autre ou si besoin" en.text="Precise if other or needed" />		
+		<label text=" " />
+		<label text="LANDILL TYPE" fr.text="TYPE DE DECHARGE" en.text="LANDILL TYPE"/>
+		<check key="landfill_type:dumpster" text="Dumpster" fr.text="Benne" en.text="Dumpster" default="off" />
+		<check key="landfill_type:pit" text="Pit" fr.text="Fosse" en.text="Pit" default="off" />
+		<check key="landfill_type:ground" text="On the ground" fr.text="A meme le sol" en.text="On the ground" default="off" />
+		<text key="landfill_type:other" text="Precise if other or needed" fr.text="Preciser si autre ou si besoin" en.text="Precise if other or needed" />	
+		<label text=" " />
+		<label text="WASTE TYPE" fr.text="TYPE DE DECHETS" en.text="WASTE TYPE"/>
+		<check key="waste_type:industrial_polluting" text="Industrial polluting waste" fr.text="Dechets industriels polluants" en.text="Industrial polluting waste" default="off" />
+		<check key="waste_type:common_urban_waste" text="Common urban waste" fr.text="Dechets urbains courants" en.text="Common urban waste" default="off" />
+		<check key="waste_type:building_waste" text="Building waste" fr.text="Dechets de construction" en.text="Building waste" default="off" />
+		<text key="waste_type:other" text="Precise if other or needed" fr.text="Preciser si autre ou si besoin" en.text="Precise if other or needed" />		
+		<label text=" " />
+		<label text="CAPACITY" fr.text="CAPACITE" en.text="CAPACITY"/>	
+		<text key="landfill_length" text="Landfill length (m)" fr.text="Longueur de la decharge (m)" en.text="Landfill length (m)" />		
+		<text key="landfill_width" text="Landfill width (m)" fr.text="Largeur de la decharge (m)" en.text="Landfill width (m)" />		
+		<text key="landfill_height" text="Landfill height (m)" fr.text="Hauteur de la decharge (m)" en.text="Landfill height (m)" />		
+		<label text=" " />	
+		<label text="OPERATIONAL STATUS" fr.text="STATUT OPERATIONNEL" en.text="OPERATIONAL STATUS"/>			
+        <combo key="operational_status" text="Operational status" fr.text="Statut operationnel" en.text="Operational status" 
+			values="open,restricted,closed,unspecified" 
+			display_values="open,restricted,closed,unspecified"
+			fr.display_values="ouvert,restreint,ferme,non precise" 
+			en.display_values="open,restricted,closed,unspecified" required="true"/>
+        <combo key="operational_status_quality" text="Operational status quality" fr.text="Qualite de l'Information sur le statut operationnel" en.text="Operational status quality" 
+        	values="reported,confirmed,unspecified" 
+        	display_values="reported,confirmed,unspecified" 
+			fr.display_values="rapporte,confirme,non precise"
+			en.display_values="reported,confirmed,unspecified" required="true"/>			
+	    <combo key="status" text="Status" fr.text="Etat" en.text="Status"
+            values="good,medium,bad"
+            display_values="good,medium,bad"
+			fr.display_values="bon,moyen,mauvais"
+            en.display_values="good,medium,bad"/>
+ 		<label text=" " />
+		<label text="SOURCE" fr.text="SOURCE" en.text="SOURCE"/>		
+       	<text key="geometry_source_name" text="Geometry source name" fr.text="Nom de la source geometrique" en.text="Geometry source name" />
+        <combo key="geometry_source_type" text="Geometry source type" fr.text="Type de la source geometrique" en.text="Geometry source type" 
+        	values="field_mission_gps_walking_paper,field_mission_gps,field_mission_walking_paper,satellite_imagery,maps,gis_dataset,unspecified"
+        	display_values="field mission with gps and walking paper,field mission with only gps,field mission with only walking paper,satellite imagery,maps,gis dataset,unspecified" 
+			fr.display_values="mission de terrain avec GPS et walking paper,mission de terrain avec GPS seul,mission de terrain avec walking paper seul,image satellite,carte,base de donnees georeferencee,non precise"
+        	en.display_values="field mission with gps and walking paper,field mission with only gps,field mission with only walking paper,satellite imagery,maps,gis dataset,unspecified" required="true"/>
+        <text key="geometry_source_date" text="Geometry source date (DD/MM/YYYY)" fr.text="Date de la source geometrique (JJ/MM/AAAA)" en.text="Geometry source date (DD/MM/YYYY)"/>
+        <text key="attribute_source_name" text="Attribute source name" fr.text="Nom de la source attributaire" en.text="Attribute source name" />
+        <combo key="attribute_source_type" text="Attribute source type" fr.text="Type de la source attributaire"  en.text="Attribute source type" 
+        	values="field_mission,report,unspecified"
+        	display_values="field mission,report,unspecified"
+			fr.display_values="mission de terrain,rapport,non precise"
+        	en.display_values="field mission,report,unspecified" required="true"/>
+        <text key="attribute_source_date" text="Attribute source date (DD/MM/YYYY)" fr.text="Date de la source attributaire (JJ/MM/AAAA)" en.text="Attribute source date (DD/MM/YYYY)" />
+		<label text=" " />
+        <text key="NOTE" text="NOTE" fr.text="NOTES" en.text="NOTE" />
+		<label text=" " />
+	</item>	
+	<item name="Flooded prone zone" fr.name="Zone d'inondation recurrente" en.name="Flooded prone zone" type="node,way,closedway,relation" >
+		<key key="IOM:project" value="DRR" />
+		<key key="flood_prone" value="yes" />
+		<label text="== FLOODED PRONE ZONE ==" fr.text="== ZONE D'INONDATION RECURRENTE ==" en.text="== FLOODED PRONE ZONE =="/>
+		<label text=" " />
+		<label text="SURVEYOR INFORMATION" fr.text="INFORMATION ENQUETEUR" en.text="SURVEYOR INFORMATION"/>
+		<text key="surveyor:name" text="Surveyor(s) Name" fr.text="Nom du ou des enquêteurs" en.text="Surveyor(s) Name"/>		
+		<text key="surveyor:email" text="Surveyor(s) Email" fr.text="Email du ou des enquêteurs" en.text="Surveyor(s) Email"/>		
+		<text key="surveyor:phone" text="Surveyor(s) phone number" fr.text="Telephone du ou des enquêteurs" en.text="Surveyor(s) phone number"/>		
+		<text key="surveyor:GPS" text="Surveyor(s) GPS ID number" fr.text="Numero de GPS du ou des enquêteurs" en.text="Surveyor(s) GPS ID number"/>		
+		<label text=" " />
+		<combo key="flood_prone:informant" text="Informant" fr.text="Informateur"  en.text="Informant" 
+        	values="elected_representative,community_leader,focal_point,resident,other,unspecified"
+        	display_values="elected representative,community leader,focal point,resident,other,unspecified"
+			fr.display_values="elu,leader communautaire,point focal,resident,autre,non precise"
+        	en.display_values="elected representative,community leader,focal point,resident,other,unspecified"/>	
+		<label text=" " />
+		<label text="FLOOD INFORMATION" fr.text="INFORMATION INONDATION" en.text="FLOOD INFORMATION"/>		
+		<combo key="flood_prone:frequency" text="FREQUENCY" fr.text="FREQUENCE"  en.text="FREQUENCY" 
+        	values="once_a_year,twice_a_year,three_times_a_year,more_than_three_times_a_year,unspecified"
+        	display_values="once a year,twice a year,three times a year,more than three times a year,unspecified"
+			fr.display_values="une fois par an,deux fois par an,trois fois par an,plus,non precise"
+        	en.display_values="once a year,twice a year,three times a year,more than three times a year,unspecified"/>
+		<label text=" " />
+		<text key="flood_prone:first_year" text="FIRST YEAR OF FLOOD" fr.text="PREMIERE ANNEE D'INONDATION"  en.text="FIRST YEAR OF FLOOD" /> 
+		<label text=" " />
+		<combo key="flood_prone:height" text="FLOOD HEIGHT" fr.text="HAUTEUR DE L'INONDATION"  en.text="FLOOD HEIGHT" 
+        	values="ankle,knee,hip,breast,above_head,unspecified"
+        	display_values="ankle,knee,hip,breast,above_head,unspecified"
+			fr.display_values="cheville,genou,hanche,poitrine,plus que la tete,non precise"
+        	en.display_values="once a year,twice a year,three times a year,more than three times a year,unspecified"/>
+		<label text=" " />
+		<label text="WATER TYPE" fr.text="NATURE DE l'EAU" en.text="WATER TYPE"/>
+		<check key="flood_prone:water_clear" text="Clear water" fr.text="Eau claire" en.text="Clear water" default="off" />		
+		<check key="flood_prone:water_mud" text="Mud" fr.text="Boue" en.text="Mud" default="off" />		
+		<check key="flood_prone:water_detritus" text="With detritus" fr.text="Avec detritus" en.text="With detritus" default="off" />		
+		<label text=" " />
+		<combo key="flood_prone:rise" text="FLOOD RISE" fr.text="INTENSITE DE L'INONDATION"  en.text="FLOOD RISE" 
+        	values="fast_rise,slow_rise,unspecified"
+        	display_values="fast rise,slow rise,unspecified"
+			fr.display_values="montee rapide,montee lente,non precise"
+        	en.display_values="fast rise,slow rise,unspecified"/>
+		<label text=" " />
+		<combo key="flood_prone:impact" text="FLOOD RISK IMPACT (casualties, disesases)" fr.text="IMPACT DE L'INONDATION (victimes, epidemies)"  en.text="FLOOD RISK IMPACT (casualties, disesases)" 
+        	values="strong,medium,low,unspecified"
+        	display_values="strong,medium,low,unspecified"
+			fr.display_values="fort,moyen,faible,non precise"
+        	en.display_values="strong,medium,low,unspecified"/>	
+		<label text=" " />			
+		<text key="cholera_affected_people" 
+			text="Number of people affected by the cholera after the flood" 
+			fr.text="Nombre de personnes affectees par le cholera apres l'inondation"  
+			en.text="Number of people affected by the cholera after the flood" /> 
+		<label text=" " />
+		<label text="PICTURE" fr.text="PHOTO" en.text="PICTURE"/>
+		<text key="photo_url" text="URL of Uploaded picture or picture album on FLICKR" fr.text="URL de la photo uploadee ou de l'album sur FLICKR " en.text="URL of Uploaded picture or picture album on FLICKR"/>
+		<label text=" " />
+		<label text="SOURCE" fr.text="SOURCE" en.text="SOURCE"/>		
+       	<text key="geometry_source_name" text="Geometry source name" fr.text="Nom de la source geometrique" en.text="Geometry source name" />
+        <combo key="geometry_source_type" text="Geometry source type" fr.text="Type de la source geometrique" en.text="Geometry source type" 
+        	values="field_mission_gps_walking_paper,field_mission_gps,field_mission_walking_paper,satellite_imagery,maps,gis_dataset,unspecified"
+        	display_values="field mission with gps and walking paper,field mission with only gps,field mission with only walking paper,satellite imagery,maps,gis dataset,unspecified" 
+			fr.display_values="mission de terrain avec GPS et walking paper,mission de terrain avec GPS seul,mission de terrain avec walking paper seul,image satellite,carte,base de donnees georeferencee,non precise"
+        	en.display_values="field mission with gps and walking paper,field mission with only gps,field mission with only walking paper,satellite imagery,maps,gis dataset,unspecified" required="true"/>
+        <text key="geometry_source_date" text="Geometry source date (DD/MM/YYYY)" fr.text="Date de la source geometrique (JJ/MM/AAAA)" en.text="Geometry source date (DD/MM/YYYY)"/>
+        <text key="attribute_source_name" text="Attribute source name" fr.text="Nom de la source attributaire" en.text="Attribute source name" />
+        <combo key="attribute_source_type" text="Attribute source type" fr.text="Type de la source attributaire"  en.text="Attribute source type" 
+        	values="field_mission,report,unspecified"
+        	display_values="field mission,report,unspecified"
+			fr.display_values="mission de terrain,rapport,non precise"
+        	en.display_values="field mission,report,unspecified" required="true"/>
+        <text key="attribute_source_date" text="Attribute source date (DD/MM/YYYY)" fr.text="Date de la source attributaire (JJ/MM/AAAA)" en.text="Attribute source date (DD/MM/YYYY)" />
+		<label text=" " />
+        <text key="NOTE" text="NOTE" fr.text="NOTES" en.text="NOTE" />
+		<label text=" " />
+	</item>				
+  
+<group name="Water Canals" fr.name="Canaux d'evacuation d'eau" en.name="Water Canals" >
+
+	<item name="Wastewater whole canal general information" fr.name="Infos générales du canal" en.name="Wastewater whole canal general information" type="way,relation">
+        <label text="== ID ==" en.text="== ID =="/>
+		<label text=" " />
+        <text key="id:uuid" text="UUID" en.text="UUID"/>
+		<label text=" " />
+        <label text="== INFORMATIONS CANAL ==" en.text="== WASTEWATER CANAL INFORMATIONS =="/>
+		<key key="IOM:project" value="DRR" />
+    	<!-- en attente d'un tag definitif pour reseaux de canaux. Voir http://wiki.openstreetmap.org/wiki/Proposed_features/water_network-->
+		<key key="man_made" value="water_canal" />
+		<key key="waterway" value="drain" />
+        <combo key="canal_type" text="Type de canal" en.text="Canal type" 
+			values="primary_collector,secondary_collector,tertiary_collector" 
+			display_values="collecteur principal,collecteur secondaire,collecteur tertiaire (rigoles etc.)" 
+			en.display_values="primary collector,secondary collector,tertiary collector"/>
+		<label text=" " />
+		<text key="width" text="Largeur (à la surface du canal) en cm" en.text="Width afloat in cm "/>
+		<text key="depth" text="Profondeur en cm" en.text="Depth in cm"/> 
+		<label text=" " />
+	    <combo key="canal_base_material" text="Matériel de construction" en.text="Building materials" 
+			values="concrete,dirt,stone" 
+			display_values="beton,terre,pierre" 
+			en.display_values="concrete,dirt,stone"/>
+		<label text=" " />
+       	<combo key="canal_roof_extent" text="Couverture du canal" en.text="Canal roof extent" 
+			values="totally,partially,no,unspecified" 
+			display_values="totale,partielle,aucune,non precise" 
+			en.display_values="totally,partially,no,unspecified"/>
+		<text key="canal_roof_desc" text="Description couverture" en.text="Canal roof description"/>
+		<label text=" " />
+		<combo key="canal_banks_right" text="Matériaux des berges rive droite" en.text="Banks on right side " 
+			values="dirt/sand,asphalt/paved,vegetation" 
+			display_values="terre/sable,vegetation,asphalte/paves" 
+			en.display_values="dirt/sand,asphalt/paved,vegetation" />
+		<text key="canal_banks_desc_right" text="Description berges rive droite" en.text="Banks right side description" />
+		<label text=" " />
+		<combo key="canal_banks_left" text="Matériaux des berges rive gauche" en.text="Banks on left side " values="dirt/sand,asphalt/paved,vegetation" display_values="terre/sable,vegetation,asphalte/paves" en.display_values="dirt/sand,asphalt/paved,vegetation" />
+		<text key="canal_banks_desc_left" text="Description berges rive gauche" en.text="Banks left side description" /> 
+		<label text=" " />
+		<combo key="operational_status" text="Statut operationnel" values="operational,closed" display_values="operationnel,non operationnel" en.display_values="operational,closed" />
+		<text key="canal_description" text="Notes et observations" en.text="Note"/>
+		<label text=" " />
+		<label text="== SOURCE ==" en.text="== SOURCE =="/>
+        <text key="geometry_source_name" text="Nom de la source geometrique" en.text="Geometrical source name"/>
+        <combo key="geometry_source_type" text="Type de la source geometrique" en.text="Geometrical source type" values="field_mission_gps_walking_paper,field_mission_gps,field_mission_walking_paper,satellite_imagery,maps,gis_dataset,unspecified"
+        	display_values="mission de terrain avec GPS et walking paper,mission de terrain avec GPS seul,mission de terrain avec walking paper seul,image satellite,carte,base de donnees georeferencee,non precise"
+        	en.display_values="field mission with GPS and walking paper,field mission with GPS,field mission with walking_paper,satellite imagery,maps,gis dataset,unspecified"/>
+        <text key="geometry_source_date" text="Date de la source geometrique (format JJ/MM/AAAA)" en.text="Geometrical source date (JJ/MM/AAAA format)"/>
+        <text key="attribute_source_name" text="Nom de la source attributaire" en.text="Attribute source name"/>
+        <combo key="attribute_source_type" text="Type de la source attributaire" en.text="Attribute source type" values="field_mission_gps,field_mission,report,unspecified" display_values="mission terrain avec GPS,mission terrain sans GPS,rapport,non precise" en.display_values="field mission with GPS,field mission without GPS,report,unspecified"/>
+        <text key="attribute_source_date" text="Date de la source attributaire (format JJ/MM/AAAA)" en.text="Attribute source date (JJ/MM/AAAA format)"/>
+		<label text=" " />
+        <label text="== PHOTO ==" en.text="== PHOTO =="/>
+        <text key="photo_num" text="Numero de la photo" en.text="Picture number"/>
+        <text key="photo_name" text="Nom(s) de fichier(s) de la photo" en.text="Picture(s) name(s)"/>
+        <text key="photo_url" text="URL de la photo ou du dossier de photos uploades sur FLICKR" en.text="URL of picture or pictures folder uploaded on Flickr"/>      			
+    	</item>
+	<item name="Obstacles" en.name="Barriers" type="node,way,closedway,relation">
+        <key key="IOM:project" value="DRR" />
+		<label text="== OBSTACLES DE COUVERTURE ==" en.text="== ROOF OBSTACLES =="/>
+		<check key="bridge" text="Pont" en.text="Bridge" value_on="yes" default="off" delete_if_empty="true"/>
+		<check key="ramp" text="Passage ou rampe" en.text="Ramp to cross the canal" value_on="yes" default="off" delete_if_empty="true"/>
+		<check key="building" text="Construction (batiment)" en.text="Building" value_on="yes" default="off" delete_if_empty="true"/>
+		<label text=" " />
+		<label text="== OBSTACLES DANS LE CANAL ==" en.text="== CANAL OBSTACLES =="/>
+		<combo key="canal:obstacle_type" text="Type d'obstacle" en.text="Obstacle type" 
+			values="waste_embankments,various_materials_embankments,vegetation,others,no" 
+			display_values="talus de dechets,talus de materiaux divers,vegetation,autres,aucun" 
+			en.display_values="waste embankments,various materials embankments,vegetation,others,no"/>
+		<text key="barriers:obstacle_description" text="Description de l'obstacle" en.text="Barriers description"/>
+		<label text=" " />
+		<label text="== OBSTACLES SUR LES BERGES ==" en.text="== CANAL BANKS OBSTACLES =="/>
+		<combo key="canal_banks_barriers_right" text="Obstacles sur les berges rive droite" en.text="Banks barriers on right side" 
+			values="waste_embankments,various_materials_embankments,buildings,stagnant water,others,no" 
+			display_values="talus de dechets,talus de materiaux divers,constructions,eau stagnante,autres,aucun" 
+			en.display_values="waste embankments,various materials embankments,buildings,stagnant water,others,no"/>
+		<text key="canal_banks_barriers_desc_right" text="Description berges rive droite" en.text="Banks right side description" />
+		<combo key="canal_banks_barriers_left" text="Obstacles sur lpes berges rive gauche" en.text="Banks barriers on left side" 
+			values="waste_embankments,various_materials_embankments,buildings,stagnant water,others,no" 
+			display_values="talus de dechets,talus de materiaux divers,constructions,eau stagnante,autres,aucun" 
+			en.display_values="waste embankments,various materials embankments,buildings,stagnant water,others,no"/>
+		<text key="canal_banks_barriers_desc_left" text="Description berges rive gauche" en.text="Banks left side description" />
+		<label text=" " />
+		<label text="== SOURCE ==" en.text="== SOURCE =="/>
+		<text key="geometry_source_name" text="Nom de la source geometrique" en.text="Geometrical source name"/>
+        <combo key="geometry_source_type" text="Type de la source geometrique" en.text="Geometrical source type" values="field_mission_gps_walking_paper,field_mission_gps,field_mission_walking_paper,satellite_imagery,maps,gis_dataset,unspecified"
+        	display_values="mission de terrain avec GPS et walking paper,mission de terrain avec GPS seul,mission de terrain avec walking paper seul,image satellite,carte,base de donnees georeferencee,non precise"
+        	en.display_values="field mission with GPS and walking paper,field mission with GPS,field mission with walking_paper,satellite imagery,maps,gis dataset,unspecified"/>
+        <text key="geometry_source_date" text="Date de la source geometrique (format JJ/MM/AAAA)" en.text="Geometrical source date (JJ/MM/AAAA format)"/>
+		<text key="attribute_source_name" text="Nom de la source attributaire" en.text="Attribute source name"/>
+		<combo key="attribute_source_type" text="Type de la source attributaire" en.text="Attribute source type" values="field_mission_gps,field_mission,report,unspecified" display_values="mission terrain avec GPS,mission terrain sans GPS,rapport,non precise" en.display_values="field mission with GPS,field mission without GPS,report,unspecified"/>
+        <text key="attribute_source_date" text="Date de la source attributaire (format JJ/MM/AAAA)" en.text="Attribute source date (JJ/MM/AAAA format)"/>
+		<label text=" " />
+        <label text="== PHOTO ==" en.text="== PHOTO =="/>
+        <text key="photo_num" text="Numero de la photo" en.text="Picture number"/>
+        <text key="photo_name" text="Nom(s) de fichier(s) de la photo" en.text="Picture(s) name(s)"/>
+        <text key="photo_url" text="URL de la photo ou du dossier de photos uploades sur FLICKR" en.text="URL of picture or pictures folder uploaded on Flickr"/>  
+    </item>	
+	</group>
+</group>
+</presets>
