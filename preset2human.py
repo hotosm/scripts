@@ -107,7 +107,7 @@ class CheckNode(Node):
 def main(path):
     with open(path) as f:
         content = f.read()
-    content = content.replace(' xmlns="', ' xmlnamespace="')
+    content = content.replace('xmlns="', 'xmlnamespace="')
     root = etree.XML(content)
     NODES = []
 
@@ -120,6 +120,7 @@ def main(path):
             else:
                 node = cls(child, depth)
                 NODES.append(node)
+            finally:
                 iternode(child, depth=depth+1)
     iternode(root)
     return NODES
