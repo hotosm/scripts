@@ -26,23 +26,63 @@ class Node(object):
     def name(self):
         return self._node.attrib['name']
 
+    @property
+    def txt_prefix(self):
+        return u""
+
     def __unicode__(self):
         return self.name
 
     def __str__(self):
         return self.__unicode__().encode('utf-8')
 
+    @property
+    def txt_str(self):
+        return self.__unicode__()
+
+    def to_txt(self):
+        return "%s%s%s\n" % (
+            u"\t" * self.depth,
+            self.txt_prefix,
+            self.txt_str
+        )
+
+    def to_csv(self):
+        return ["" for e in range(self.depth)] + [self]
+
+    def to_wiki(self):
+        return unicode(self)
+
+    def wiki_key(self, value):
+        return u"[[Key:%s|%s]]" % (value, value)
+
+    def wiki_tag(self, key, value):
+        return u"[[Tag:%s%%3D%s|%s]]" % (key, value, value)
+
 
 class GroupNode(Node):
 
-    def __unicode__(self):
-        return u"— %s" % self.name
+    @property
+    def txt_prefix(self):
+        return u"— "
+
+    def to_wiki(self):
+        affix = u"=" * self.depth
+        return u"=%s %s =%s" % (
+            affix,
+            super(GroupNode, self).to_wiki(),
+            affix,
+        )
 
 
 class ItemNode(Node):
 
-    def __unicode__(self):
-        return u"+ %s" % self.name
+    @property
+    def txt_prefix(self):
+        return u"* "
+
+    def to_wiki(self):
+        return u"==== %s ====" % super(ItemNode, self).to_wiki()
 
 
 class KeyNode(Node):
@@ -55,8 +95,15 @@ class KeyNode(Node):
     def value(self):
         return self._node.attrib['value']
 
-    def __unicode__(self):
+    @property
+    def txt_str(self):
         return u"%s => %s" % (self.name, self.value)
+
+    def to_wiki(self):
+        return u"* %s=%s" % (
+            self.wiki_key(self.name),
+            self.wiki_tag(self.name, self.value)
+        )
 
 
 class ComboNode(Node):
@@ -69,8 +116,11 @@ class ComboNode(Node):
     def values(self):
         return self._node.attrib['values']
 
-    def __unicode__(self):
-        return u"%s => %s" % (self.name, self.values)
+    def to_wiki(self):
+        return u"* %s=%s" % (
+            self.wiki_key(self.name),
+            self.values
+        )
 
 
 class TextNode(Node):
@@ -81,6 +131,11 @@ class TextNode(Node):
 
     def __unicode__(self):
         return u"%s => …" % self.name
+
+    def to_wiki(self):
+        return u"* %s=…" % (
+            self.wiki_key(self.name),
+        )
 
 
 class CheckNode(Node):
@@ -98,10 +153,24 @@ class CheckNode(Node):
         finally:
             return default
 
-    def __unicode__(self):
-        on = self.default in ("yes", "on") and "[yes]" or "yes"
-        off = self.default in ("no", "off") and "[no]" or "no"
-        return u"%s => %s/%s" % (self.name, on, off)
+    @property
+    def on(self):
+        return self.default in ("yes", "on") and "[yes]" or "yes"
+
+    @property
+    def off(self):
+        return self.default in ("no", "off") and "[no]" or "no"
+
+    @property
+    def txt_str(self):
+        return u"%s => %s/%s" % (self.name, self.on, self.off)
+
+    def to_wiki(self):
+        return u"* %s=%s/%s" % (
+            self.wiki_key(self.name),
+            self.on,
+            self.off
+        )
 
 
 def main(path):
@@ -129,7 +198,7 @@ def main(path):
 def to_txt(nodes, filepath):
     content = ""
     for node in nodes:
-        content += "%s%s\n" % (u"\t" * node.depth, unicode(node))
+        content += node.to_txt()
     f = codecs.open(filepath, 'w', "utf-8")
     f.write(content)
     f.close()
@@ -142,9 +211,18 @@ def to_csv(nodes, filepath):
         quotechar='"'
     )
     for node in nodes:
-        empty_cells = ["" for e in range(node.depth)]
-        row = empty_cells + [node]
-        writer.writerow(row)
+        writer.writerow(node.to_csv())
+
+
+def to_wiki(nodes, filepath):
+    for node in nodes:
+        print node.to_wiki()
+
+
+def to_print(nodes, filepath):
+    for node in nodes:
+        print node.to_txt()
+
 
 if __name__ == "__main__":
     args = docopt(__doc__)
