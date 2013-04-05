@@ -4,7 +4,7 @@ Usage:
     preset2human.py <file> [options]
 
 Options:
-    -f, --format <format>        Ouput format: csv, txt, json [default: txt]
+    -f, --format <format>        Ouput format: csv, txt, wiki, json [default: txt]
     -o, --output <filepath>      Ouput filepath [default: ./output.txt]
 """
 
